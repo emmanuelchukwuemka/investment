@@ -16,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'guest.only' => \App\Http\Middleware\GuestOnly::class,
             'admin.only' => \App\Http\Middleware\AdminOnly::class,
         ]);
+
+        // Render terminates TLS at its proxy and forwards plain HTTP —
+        // trust the proxy headers so Laravel generates https:// URLs.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
