@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Login | Webull Robin Empresa')
+@section('title', 'Login | Zenith Edge Investment')
 
 @section('content')
 <div class="slider-sub">
@@ -19,7 +19,7 @@
         <form action="{{ route('login.post') }}" method="post" class="form-signin">
             @csrf
             <marquee>
-                <div class="text-center" style="text-align: center;"><img src="{{ asset('img/favicon.png') }}" style="width: 40px;"> <b>WEBULL ROBIN EMPRESA</b></div>
+                <div class="text-center" style="text-align: center;"><img src="{{ asset('img/favicon.png') }}" style="width: 40px;"> <b>ZENITH EDGE INVESTMENT</b></div>
             </marquee>
             <div class="col-12 col-sm-12">
                 <label for="Email">Email</label>

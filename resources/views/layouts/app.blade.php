@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('lassets/icons/style.css') }}">
     <link rel="stylesheet" href="{{ asset('lassets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('lassets/css/animate-4.1.1.min.css') }}">
-    <title>@yield('title', 'Webull Robin Empresa')</title>
+    <title>@yield('title', 'Zenith Edge Investment')</title>
     @yield('head')
 </head>
 <body>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mail ml-28 flex-item-center">
                             <i class="ph-light ph-envelope text-white fs-20"></i>
-                            <span class="ml-8 caption1 text-white">support@webullrobinempresa.com</span>
+                            <span class="ml-8 caption1 text-white">support@zenithedgeinvestment.com</span>
                         </div>
                     </div>
                     <div class="right-block flex-item-center gap-20">
@@ -207,7 +207,7 @@
                         <div class="col-3">
                             <div class="footer-company-infor flex-columns-between gap-20">
                                 <img class="footer-logo" src="{{ asset('img/logo.png') }}" alt="Logo">
-                                <div class="text caption1 text-white">Webull Robin Empresa is based in California, USA. We provide long term and short-term Investments.</div>
+                                <div class="text caption1 text-white">Zenith Edge Investment is based in California, USA. We provide long term and short-term Investments.</div>
                                 <div class="list-social flex-item-center gap-10 style-one">
                                     <a class="item bora-50 w-28 h-28 border-grey-2px flex-center" href="https://www.facebook.com/" target="_blank"><i class="icon-facebook fs-12"></i></a>
                                     <a class="item bora-50 w-28 h-28 border-grey-2px flex-center" href="https://www.linkedin.com/" target="_blank"><i class="icon-in fs-12"></i></a>
@@ -271,7 +271,7 @@
                     <div class="border-line"></div>
                     <div class="footer-bottom flex-between pt-12 pb-12">
                         <div class="left-block flex-item-center">
-                            <div class="copy-right text-line caption1">©{{ date('Y') }} Webull Robin Empresa. All Rights Reserved.</div>
+                            <div class="copy-right text-line caption1">©{{ date('Y') }} Zenith Edge Investment. All Rights Reserved.</div>
                         </div>
                         <div class="nav-link flex-item-center gap-10">
                             <a class="text-line caption1 hover-underline" href="{{ route('terms') }}">Terms Of Services</a>

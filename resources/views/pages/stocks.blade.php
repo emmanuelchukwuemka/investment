@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Stocks and Bonds | Webull Robin Empresa')
+@section('title', 'Stocks and Bonds | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>

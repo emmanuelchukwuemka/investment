@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Our Values | Webull Robin Empresa')
+@section('title', 'Our Values | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
@@ -11,7 +11,7 @@
 <div class="form-contact style-one mt-100">
     <div class="container">
         <div class="heading3 text-center">Our Core Values</div>
-        <div class="body3 text-secondary mt-12 text-center">The principles that guide everything we do at Webull Robin Empresa</div>
+        <div class="body3 text-secondary mt-12 text-center">The principles that guide everything we do at Zenith Edge Investment</div>
         <div class="row mt-60 row-gap-32">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="bg-surface bora-16 p-32 text-center hover-box-shadow">

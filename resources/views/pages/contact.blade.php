@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us | Webull Robin Empresa')
+@section('title', 'Contact Us | Zenith Edge Investment')
 
 @section('content')
 <div class="slider-sub">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="item flex-item-center gap-12 mt-20"><i class="ph-bold ph-envelope-simple text-blue bg-white p-8 bora-50"></i>
                             <div class="line-y"></div>
-                            <div class="text-button text-white">support@webullrobinempresa.com</div>
+                            <div class="text-button text-white">support@zenithedgeinvestment.com</div>
                         </div>
                         <div class="item flex-item-center gap-12 mt-20"><i class="ph-bold ph-map-pin text-blue bg-white p-8 bora-50"></i>
                             <div class="line-y"></div>

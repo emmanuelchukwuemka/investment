@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Real Estate Apply Now | Webull Robin Empresa')
+@section('title', 'Real Estate Apply Now | Zenith Edge Investment')
 
 @section('content')
 <div class="slider-sub">

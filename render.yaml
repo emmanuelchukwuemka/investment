@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nexvaultcapital
+    name: zenith-edge-investment
     runtime: docker
     dockerfilePath: ./Dockerfile
     dockerContext: .
@@ -8,7 +8,7 @@ services:
     healthCheckPath: /up
     envVars:
       - key: APP_NAME
-        value: NexVaultCapital
+        value: "Zenith Edge Investment"
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
@@ -36,7 +36,7 @@ services:
       - key: MAIL_FROM_ADDRESS
         sync: false
       - key: MAIL_FROM_NAME
-        value: NexVaultCapital
+        value: "Zenith Edge Investment"
       - key: PAYMENT_BTC_ADDRESS
         sync: false
       - key: PAYMENT_ETH_ADDRESS

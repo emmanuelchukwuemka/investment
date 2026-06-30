@@ -87,7 +87,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard')->with('success', 'Welcome to Webull Robin Empresa! Your account has been created.');
+        return redirect()->route('dashboard')->with('success', 'Welcome to Zenith Edge Investment! Your account has been created.');
     }
 
     public function logout(Request $request)

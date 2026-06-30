@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About Us | Webull Robin Empresa')
+@section('title', 'About Us | Zenith Edge Investment')
 
 @section('content')
 <div class="slider-sub">
@@ -30,11 +30,11 @@
                         <div class="nav-item" data-name="vision">Vision</div>
                     </div>
                     <div class="description item-filter" data-name="about-us">
-                        <p>Webull Robin Empresa is based in California, USA, We provide long-term and short-term investment opportunities.<br>
+                        <p>Zenith Edge Investment is based in California, USA, We provide long-term and short-term investment opportunities.<br>
                             By FINRA, Company Reg No (CRD#: 7482994)<br>
                             Investments Licensed & Incorporated by LOFSA (LABUAN FINANCIAL SERVICES AUTHORITY),
                             Security passed and protected by SIPC (Security Investor Protection Corporation)</p>
-                        <p class="intro-text-lead">As a financial institution, we are well aware that money management requires a transparent and trusting relationship between a client and a broker in the market. Therefore, we are always ready to provide our partners with any information they may be interested in. We always conduct our business openly, and our activities are absolutely legal. Webull Robin Empresa is an officially registered company operating within the framework of international financial legislation, which ensures protection of our users both from the legal and financial side.</p>
+                        <p class="intro-text-lead">As a financial institution, we are well aware that money management requires a transparent and trusting relationship between a client and a broker in the market. Therefore, we are always ready to provide our partners with any information they may be interested in. We always conduct our business openly, and our activities are absolutely legal. Zenith Edge Investment is an officially registered company operating within the framework of international financial legislation, which ensures protection of our users both from the legal and financial side.</p>
                     </div>
                 </div>
                 <div class="description item-filter hide" data-name="mission">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Loan | Webull Robin Empresa')
+@section('title', 'Loan | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
@@ -13,7 +13,7 @@
         <div class="row flex-item-center row-gap-40">
             <div class="col-12 col-lg-6">
                 <div class="heading3">Our Loan Services</div>
-                <div class="body3 text-secondary mt-20">Webull Robin Empresa offers flexible loan solutions to help you achieve your financial goals. Whether you need funds for personal use, business expansion, or investment opportunities, our loan products provide competitive rates and flexible repayment terms.</div>
+                <div class="body3 text-secondary mt-20">Zenith Edge Investment offers flexible loan solutions to help you achieve your financial goals. Whether you need funds for personal use, business expansion, or investment opportunities, our loan products provide competitive rates and flexible repayment terms.</div>
                 <div class="list-service mt-32">
                     <div class="service-item flex-item-center"><i class="ph-bold ph-check text-blue fs-24"></i><div class="text-button ml-12">Personal Loans</div></div>
                     <div class="service-item flex-item-center mt-12"><i class="ph-bold ph-check text-blue fs-24"></i><div class="text-button ml-12">Business Loans</div></div>

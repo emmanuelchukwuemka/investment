@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(InvestmentPlanSeeder::class);
 
         // Demo admin account
-        User::firstOrCreate(['email' => 'admin@nexvaultcapital.com'], [
+        User::firstOrCreate(['email' => 'admin@zenithedgeinvestment.com'], [
             'name'     => 'Admin',
-            'email'    => 'admin@nexvaultcapital.com',
+            'email'    => 'admin@zenithedgeinvestment.com',
             'password' => Hash::make('password'),
             'role'     => 'admin',
             'country'  => 'United States',
@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Demo user account
-        User::firstOrCreate(['email' => 'demo@nexvaultcapital.com'], [
+        User::firstOrCreate(['email' => 'demo@zenithedgeinvestment.com'], [
             'name'     => 'Demo User',
-            'email'    => 'demo@nexvaultcapital.com',
+            'email'    => 'demo@zenithedgeinvestment.com',
             'password' => Hash::make('password'),
             'role'     => 'user',
             'country'  => 'United States',

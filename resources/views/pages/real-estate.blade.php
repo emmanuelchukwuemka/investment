@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Real Estate | Webull Robin Empresa')
+@section('title', 'Real Estate | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
@@ -13,7 +13,7 @@
         <div class="row flex-item-center row-gap-40">
             <div class="col-12 col-lg-6">
                 <div class="heading3">Real Estate Investment</div>
-                <div class="body3 text-secondary mt-20">Real estate investment offers one of the most stable and lucrative opportunities in the financial world. Webull Robin Empresa connects investors with premium real estate opportunities across multiple markets, providing both short-term rental income and long-term capital appreciation. Our expert team identifies undervalued properties and emerging markets to maximize your returns.</div>
+                <div class="body3 text-secondary mt-20">Real estate investment offers one of the most stable and lucrative opportunities in the financial world. Zenith Edge Investment connects investors with premium real estate opportunities across multiple markets, providing both short-term rental income and long-term capital appreciation. Our expert team identifies undervalued properties and emerging markets to maximize your returns.</div>
                 <div class="list-service mt-32">
                     <div class="service-item flex-item-center"><i class="ph-bold ph-check text-blue fs-24"></i><div class="text-button ml-12">Residential Properties</div></div>
                     <div class="service-item flex-item-center mt-12"><i class="ph-bold ph-check text-blue fs-24"></i><div class="text-button ml-12">Commercial Real Estate</div></div>

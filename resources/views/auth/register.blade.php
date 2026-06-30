@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Register | Webull Robin Empresa')
+@section('title', 'Register | Zenith Edge Investment')
 
 @section('content')
 <div class="slider-sub">
@@ -18,7 +18,7 @@
     <div class="container">
         <form action="{{ route('register.post') }}" method="post">
             @csrf
-            <div class="text-center" style="text-align: center;"><img src="{{ asset('img/favicon.png') }}" style="width: 40px;"> <b>WEBULL ROBIN EMPRESA</b></div>
+            <div class="text-center" style="text-align: center;"><img src="{{ asset('img/favicon.png') }}" style="width: 40px;"> <b>ZENITH EDGE INVESTMENT</b></div>
 
             <div class="row">
                 <div class="col-md-12" style="margin: 10px;">
@@ -87,8 +87,8 @@
                             <p class="u-mb-medium">I hereby confirm *</p>
                             <ol class="u-mb-medium">
                                 <li class="u-mb-small"><p>1. This is an online trading platform and all communications will be done electronically. I agree to receive all communications via email.</p></li>
-                                <li class="u-mb-small"><p>2. I have read, understood, and agreed to be bound by ALL the Terms and Conditions as set out in the Webull Robin Empresa website and all related platforms, products and services.</p></li>
-                                <li class="u-mb-small"><p>3. I am of legal age in the country in which I reside and confirm that all the details given in this form are correct. I will inform Webull Robin Empresa in writing if there are any changes to these details.</p></li>
+                                <li class="u-mb-small"><p>2. I have read, understood, and agreed to be bound by ALL the Terms and Conditions as set out in the Zenith Edge Investment website and all related platforms, products and services.</p></li>
+                                <li class="u-mb-small"><p>3. I am of legal age in the country in which I reside and confirm that all the details given in this form are correct. I will inform Zenith Edge Investment in writing if there are any changes to these details.</p></li>
                                 <li class="u-mb-small"><p>4. I confirm that I will trade only in my own name and will not use this account to trade on behalf of another individual.</p></li>
                                 <li class="u-mb-small"><p>5. I confirm that I am liable for all costs set out in the Cost Profile published on the website (open to edits). I agree to meet my payment obligations and all other terms applicable to my Account as set out in the Cost Profile.</p></li>
                             </ol>

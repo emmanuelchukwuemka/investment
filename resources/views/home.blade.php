@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Webull Robin Empresa')
+@section('title', 'Zenith Edge Investment')
 
 @section('content')
 <div class="slider-block style-one">
@@ -10,7 +10,7 @@
             <div class="bg-img"><img class="w-100 h-100" src="{{ asset('img/people.jpg') }}" alt=""></div>
             <div class="container">
                 <div class="text-content flex-columns-between row-gap-40">
-                    <div class="heading2 animate__animated animate__fadeInUp animate__delay-0-2s" style="color: white;">Welcome to Webull Robin Empresa</div>
+                    <div class="heading2 animate__animated animate__fadeInUp animate__delay-0-2s" style="color: white;">Welcome to Zenith Edge Investment</div>
                     <div class="body2 text-secondary animate__animated animate__fadeInUp animate__delay-0-5s" style="color: white;">We drive the bear and bull market</div>
                     <div class="button-block animate__animated animate__fadeInUp animate__delay-0-8s"><a class="button-share display-inline-block hover-button-black bg-blue text-white text-button pl-28 pr-28 pt-12 pb-12 bora-8" href="{{ route('login') }}">Get Started</a></div>
                 </div>
@@ -166,7 +166,7 @@
         <div class="bg-img w-100"><img src="{{ asset('lassets/images/component/phone1-home5.png') }}" alt=""><img src="{{ asset('lassets/images/component/phone2-home5.png') }}" alt=""><img src="{{ asset('lassets/images/component/phone3-home5.png') }}" alt=""></div>
         <div class="text mt-40 text-center">
             <div class="heading3 text-center">One of the Most Trusted Wealth Management Companies</div>
-            <div class="body3 text-secondary mt-12 text-center">Webull Robin Empresa - Empowering Your Cryptocurrency Trading Journey. Experience secure and transparent trading with our expert team and cutting-edge solutions.</div>
+            <div class="body3 text-secondary mt-12 text-center">Zenith Edge Investment - Empowering Your Cryptocurrency Trading Journey. Experience secure and transparent trading with our expert team and cutting-edge solutions.</div>
         </div>
     </div>
 </div>
@@ -300,13 +300,13 @@
             </div>
             <div class="col-4">
                 <div class="comment-item p-32 bg-surface bora-16 hover-box-shadow"><i class="icon-quotes fs-28"></i>
-                    <div class="body3 mt-24">"I started Webull Robin Empresa been skeptical due to my previous bad experiences, but now I can confidently say that Webull Robin Empresa can be trusted 100%. I have made for than 150% in my investment."</div>
+                    <div class="body3 mt-24">"I started Zenith Edge Investment been skeptical due to my previous bad experiences, but now I can confidently say that Zenith Edge Investment can be trusted 100%. I have made for than 150% in my investment."</div>
                     <div class="infor mt-16"><div class="text-button">Austin Cesar</div><div class="caption2 text-secondary mt-4">Canada</div></div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="comment-item p-32 bg-surface bora-16 hover-box-shadow"><i class="icon-quotes fs-28"></i>
-                    <div class="body3 mt-24">"It's without doubt that Webull Robin Empresa do deliver as promised. I was able to offset all my debts by using the NPF plan and with consistent approach, I am comfortably stable financially."</div>
+                    <div class="body3 mt-24">"It's without doubt that Zenith Edge Investment do deliver as promised. I was able to offset all my debts by using the NPF plan and with consistent approach, I am comfortably stable financially."</div>
                     <div class="infor mt-16"><div class="text-button">Julian Carol</div><div class="caption2 text-secondary mt-4">Italy</div></div>
                 </div>
             </div>

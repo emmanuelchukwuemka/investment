@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Imprint | Webull Robin Empresa')
+@section('title', 'Imprint | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
@@ -16,7 +16,7 @@
                 <div class="bg-surface bora-16 p-32">
                     <div class="heading6">Company Information</div>
                     <div class="body3 text-secondary mt-16">
-                        <strong>Company Name:</strong> Webull Robin Empresa<br>
+                        <strong>Company Name:</strong> Zenith Edge Investment<br>
                         <strong>Registered:</strong> California, USA<br>
                         <strong>FINRA CRD#:</strong> 7482994<br>
                         <strong>License:</strong> LOFSA (Labuan Financial Services Authority)<br>
@@ -28,7 +28,7 @@
                 <div class="bg-surface bora-16 p-32">
                     <div class="heading6">Contact Information</div>
                     <div class="body3 text-secondary mt-16">
-                        <strong>Email:</strong> support@webullrobinempresa.com<br>
+                        <strong>Email:</strong> support@zenithedgeinvestment.com<br>
                         <strong>Phone:</strong> +(310) 461 8235<br>
                         <strong>WhatsApp:</strong> +1 913-408-8462<br>
                         <strong>Address:</strong> California, USA<br>

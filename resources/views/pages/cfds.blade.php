@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'CFDs | Webull Robin Empresa')
+@section('title', 'CFDs | Zenith Edge Investment')
 @section('content')
 <div class="slider-sub">
     <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
