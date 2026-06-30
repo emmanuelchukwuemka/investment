@@ -15,21 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(InvestmentPlanSeeder::class);
 
-        // Demo admin account
-        User::firstOrCreate(['email' => 'admin@zenithedgeinvestment.com'], [
+        // Admin account
+        User::updateOrCreate(['email' => 'admin@zenithedgeinvestment.com'], [
             'name'     => 'Admin',
-            'email'    => 'admin@zenithedgeinvestment.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('M4MML9hcTp9p%#@'),
             'role'     => 'admin',
             'country'  => 'United States',
             'balance'  => 0,
         ]);
 
         // Demo user account
-        User::firstOrCreate(['email' => 'demo@zenithedgeinvestment.com'], [
+        User::updateOrCreate(['email' => 'demo@zenithedgeinvestment.com'], [
             'name'     => 'Demo User',
-            'email'    => 'demo@zenithedgeinvestment.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('M4MML9hcTp9p%#@'),
             'role'     => 'user',
             'country'  => 'United States',
             'balance'  => 1500.00,
