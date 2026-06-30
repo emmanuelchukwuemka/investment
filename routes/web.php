@@ -36,7 +36,7 @@ Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/loan', [PageController::class, 'loan'])->name('loan');
 Route::get('/real-estate', [PageController::class, 'realEstate'])->name('real-estate');
 Route::get('/real-estate/apply', [PageController::class, 'realEstateApply'])->name('real-estate.apply');
-Route::post('/real-estate/apply', [PageController::class, 'realEstateApplyStore'])->name('real-estate.apply');
+Route::post('/real-estate/apply', [PageController::class, 'realEstateApplyStore'])->name('real-estate.apply.store');
 Route::get('/password/reset', [PageController::class, 'passwordReset'])->name('password.reset');
 Route::post('/password/reset', [AuthController::class, 'sendPasswordReset'])->name('password.email');
 Route::get('/password/reset/{token}', [AuthController::class, 'showNewPassword'])->name('password.reset.token');
