@@ -19,6 +19,9 @@ render-import.env
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/framework/views/
+/storage/framework/cache/
+/storage/framework/sessions/
 /vendor
 /database/*.sqlite
 Homestead.json
