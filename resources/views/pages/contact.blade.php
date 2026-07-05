@@ -37,7 +37,7 @@
                         </div>
                         <div class="item flex-item-center gap-12 mt-20"><i class="ph-fill ph-phone text-blue bg-white p-8 bora-50"></i>
                             <div class="line-y"></div>
-                            <div class="text-button text-white"><a href="https://api.whatsapp.com/send?phone=+13104618235" style="color: white;">+(310) 461 8235</a></div>
+                            <div class="text-button text-white"><a href="https://api.whatsapp.com/send?phone=+19253015238" style="color: white;">+1 (925) 301-5238</a></div>
                         </div>
                         <div class="item flex-item-center gap-12 mt-20"><i class="ph-bold ph-envelope-simple text-blue bg-white p-8 bora-50"></i>
                             <div class="line-y"></div>

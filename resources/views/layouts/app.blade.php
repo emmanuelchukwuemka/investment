@@ -121,7 +121,7 @@
                         <div class="text ml-12">
                             <div class="text caption1">Call Us</div>
                             <div class="number text-button">
-                                <a href="https://api.whatsapp.com/send?phone=+13104618235" style="color: white;">+(310) 461 8235</a>
+                                <a href="https://api.whatsapp.com/send?phone=+19253015238" style="color: white;">+1 (925) 301-5238</a>
                             </div>
                         </div>
                         <div class="menu-humburger display-none pointer"><i class="ph-bold ph-list display-block"></i></div>
