@@ -56,7 +56,7 @@
             </div>
             <div class="button-block flex-item-center gap-20 ml-40 mt-40 pb-8">
                 <a class="button-share text-white bg-blue hover-button-black text-button pt-14 pb-14 pl-36 pr-36 bora-48" href="{{ route('contact') }}">Get started</a>
-                <a class="button-share text-on-surface hover-button-black bg-white text-button pt-12 pb-12 pl-36 pr-36 bora-48 border-blue-2px flex-item-center gap-8" href="{{ route('contact') }}"><i class="ph ph-phone fs-20"></i><span><a href="https://api.whatsapp.com/send?phone=+19134088462" style="color: inherit;">+19134088462</a></span></a>
+                <a class="button-share text-on-surface hover-button-black bg-white text-button pt-12 pb-12 pl-36 pr-36 bora-48 border-blue-2px flex-item-center gap-8" href="{{ route('contact') }}"><i class="ph ph-phone fs-20"></i><span><a href="https://api.whatsapp.com/send?phone=+19253015238" style="color: inherit;">+1 (925) 301-5238</a></span></a>
             </div>
         </div>
     </div>

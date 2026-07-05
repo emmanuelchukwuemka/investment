@@ -29,8 +29,8 @@
                     <div class="heading6">Contact Information</div>
                     <div class="body3 text-secondary mt-16">
                         <strong>Email:</strong> support@zenithedgeinvestment.com<br>
-                        <strong>Phone:</strong> +(310) 461 8235<br>
-                        <strong>WhatsApp:</strong> +1 913-408-8462<br>
+                        <strong>Phone:</strong> +1 (925) 301-5238<br>
+                        <strong>WhatsApp:</strong> +1 (925) 301-5238<br>
                         <strong>Address:</strong> California, USA<br>
                         <strong>Support Hours:</strong> 24/7
                     </div>

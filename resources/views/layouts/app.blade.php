@@ -252,7 +252,7 @@
                                     <div class="text ml-16">
                                         <div class="caption2 text-line">Need help? 24/7</div>
                                         <div class="fw-700 text-white mt-4">
-                                            <a href="https://api.whatsapp.com/send?phone=+19134088462" style="color: white;">+1 913-408-8462</a>
+                                            <a href="https://api.whatsapp.com/send?phone=+19253015238" style="color: white;">+1 (925) 301-5238</a>
                                         </div>
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@
 
     <script type="text/javascript">
         (function() {
-            var options = { whatsapp: "+19134088462", call_to_action: "Message us", position: "left" };
+            var options = { whatsapp: "+19253015238", call_to_action: "Message us", position: "left" };
             var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
             var s = document.createElement('script');
             s.type = 'text/javascript'; s.async = true;

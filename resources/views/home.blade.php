@@ -355,7 +355,7 @@
                         <div class="body3 text-white mt-16">Discover the transformative power of cryptocurrency and revolutionize your financial journey. Join us now and embark on a path to financial empowerment</div>
                         <div class="button-block flex-item-center mt-32 gap-16">
                             <a class="button-share hover-bg-white bg-on-surface text-white text-button pl-55 pr-55 pt-14 pb-14 bora-8" href="{{ route('contact') }}">Discovery now</a>
-                            <a class="button-share hover-button-black bg-white text-button pl-28 pr-28 pt-14 pb-14 bora-8 flex-item-center gap-8" href="{{ route('contact') }}"><i class="ph-fill ph-phone"></i><span><a href="https://api.whatsapp.com/send?phone=+19134088462" style="color: white;">+19134088462</a></span></a>
+                            <a class="button-share hover-button-black bg-white text-button pl-28 pr-28 pt-14 pb-14 bora-8 flex-item-center gap-8" href="{{ route('contact') }}"><i class="ph-fill ph-phone"></i><span><a href="https://api.whatsapp.com/send?phone=+19253015238" style="color: white;">+1 (925) 301-5238</a></span></a>
                         </div>
                     </div>
                 </div>
