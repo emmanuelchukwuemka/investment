@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactMessage;
 use App\Models\Investment;
 use App\Models\InvestmentPlan;
 use App\Models\Referral;
@@ -22,10 +23,11 @@ class AdminController extends Controller
         $activeInvestments = Investment::where('status', 'active')->count();
         $recentTxns        = Transaction::with('user')->latest()->take(10)->get();
         $recentUsers       = User::where('role','!=','admin')->latest()->take(8)->get();
+        $unreadMessages    = ContactMessage::where('read', false)->count();
 
         return view('admin.dashboard', compact(
             'totalUsers', 'totalDeposited', 'totalWithdrawn',
-            'pendingCount', 'activeInvestments', 'recentTxns', 'recentUsers'
+            'pendingCount', 'activeInvestments', 'recentTxns', 'recentUsers', 'unreadMessages'
         ));
     }
 
@@ -238,5 +240,18 @@ class AdminController extends Controller
         } catch (\Exception $e) {}
 
         return back()->with('success', "Investment completed. ROI of \${$investment->roi_amount} credited to user.");
+    }
+
+    public function messages(Request $request)
+    {
+        $messages = ContactMessage::latest()->paginate(25);
+        ContactMessage::where('read', false)->update(['read' => true]);
+        return view('admin.messages', compact('messages'));
+    }
+
+    public function deleteMessage(ContactMessage $message)
+    {
+        $message->delete();
+        return back()->with('success', 'Message deleted.');
     }
 }

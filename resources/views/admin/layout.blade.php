@@ -220,6 +220,18 @@
             Investments
         </a>
 
+        <a href="{{ route('admin.messages') }}" class="sb-item {{ request()->routeIs('admin.messages*') ? 'active' : '' }}">
+            <svg class="sb-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            Messages
+            @php $unread = \App\Models\ContactMessage::where('read',false)->count(); @endphp
+            @if($unread > 0)
+                <span style="margin-left:auto;background:#dc2626;color:#fff;font-size:10px;font-weight:700;
+                    padding:1px 7px;border-radius:20px;line-height:1.6;">{{ $unread }}</span>
+            @endif
+        </a>
+
         <div class="sb-section" style="margin-top:4px;">Site</div>
         <a href="{{ route('home') }}" class="sb-item" target="_blank">
             <svg class="sb-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
