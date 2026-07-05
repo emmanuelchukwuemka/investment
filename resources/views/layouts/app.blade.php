@@ -69,8 +69,8 @@
         <div class="style-subpage style-home-five">
             <div class="header-menu style-one bg-white">
                 <div class="container flex-between h-80">
-                    <a class="menu-left-block" href="{{ route('home') }}">
-                        <img class="menu-logo display-block" src="{{ asset('img/logo.png') }}" alt="logo" style="width: 200px;">
+                    <a class="menu-left-block" href="{{ route('home') }}" style="text-decoration:none;">
+                        <span style="font-size:1.3rem;font-weight:700;color:#1a3c6b;letter-spacing:-0.5px;white-space:nowrap;">Zenith Edge<span style="color:#c9a227;"> Investment</span></span>
                     </a>
                     <div class="menu-center-block h-100">
                         <ul class="menu-nav flex-item-center h-100">
@@ -206,7 +206,7 @@
                     <div class="row flex-between pb-40">
                         <div class="col-3">
                             <div class="footer-company-infor flex-columns-between gap-20">
-                                <img class="footer-logo" src="{{ asset('img/logo.png') }}" alt="Logo">
+                                <span style="font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.5px;">Zenith Edge<span style="color:#c9a227;"> Investment</span></span>
                                 <div class="text caption1 text-white">Zenith Edge Investment is based in California, USA. We provide long term and short-term Investments.</div>
                                 <div class="list-social flex-item-center gap-10 style-one">
                                     <a class="item bora-50 w-28 h-28 border-grey-2px flex-center" href="https://www.facebook.com/" target="_blank"><i class="icon-facebook fs-12"></i></a>
