@@ -59,6 +59,41 @@ class AdminController extends Controller
         return redirect()->route('admin.users')->with('success', "User {$user->name} updated.");
     }
 
+    public function fundAccount(Request $request, User $user)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'action' => 'required|in:credit,deduct',
+            'notes'  => 'nullable|string|max:255',
+        ]);
+
+        $amount = (float) $request->amount;
+        $notes  = $request->notes ?: ($request->action === 'credit' ? 'Admin credit' : 'Admin deduction');
+
+        if ($request->action === 'credit') {
+            $user->increment('balance', $amount);
+            $type = 'admin_credit';
+        } else {
+            if ($user->balance < $amount) {
+                return back()->with('error', "Cannot deduct \$$amount — user only has \${$user->balance}.");
+            }
+            $user->decrement('balance', $amount);
+            $type = 'admin_deduction';
+        }
+
+        Transaction::create([
+            'user_id'   => $user->id,
+            'type'      => $type,
+            'amount'    => $amount,
+            'status'    => 'approved',
+            'reference' => 'ADM-' . strtoupper(substr(md5(uniqid()), 0, 8)),
+            'notes'     => $notes,
+        ]);
+
+        $label = $request->action === 'credit' ? "credited \$$amount to" : "deducted \$$amount from";
+        return back()->with('success', "Successfully $label {$user->name}'s account.");
+    }
+
     public function transactions(Request $request)
     {
         $transactions = Transaction::with('user')

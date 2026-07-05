@@ -56,6 +56,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth.user', 'admin.only'])-
     Route::get('/users',                              [AdminController::class, 'users'])->name('users');
     Route::get('/users/{user}/edit',                  [AdminController::class, 'userEdit'])->name('users.edit');
     Route::post('/users/{user}/update',               [AdminController::class, 'userUpdate'])->name('users.update');
+    Route::post('/users/{user}/fund',                 [AdminController::class, 'fundAccount'])->name('users.fund');
     Route::get('/transactions',                       [AdminController::class, 'transactions'])->name('transactions');
     Route::post('/transactions/{transaction}/approve',[AdminController::class, 'approveTransaction'])->name('transactions.approve');
     Route::post('/transactions/{transaction}/reject', [AdminController::class, 'rejectTransaction'])->name('transactions.reject');
