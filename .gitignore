@@ -4,6 +4,13 @@
 .env.backup
 .env.production
 render-import.env
+.env.cpanel
+os.env
+/public/setup.php
+/public/fix*.php
+/public/info.php
+/public/seed.php
+/public/update.php
 .phpactor.json
 .phpunit.result.cache
 /.fleet
