@@ -2,90 +2,108 @@
 @section('title', 'Edit User')
 
 @section('content')
-<div class="topbar">
-    <h4>Edit User — {{ $user->name }}</h4>
-    <a href="{{ route('admin.users') }}" style="font-size:13px;color:#1a73e8;text-decoration:none;">&larr; Back to Users</a>
+<div style="margin-bottom:20px;">
+    <a href="{{ route('admin.users') }}" class="btn btn-outline btn-sm" style="text-decoration:none;">&#8592; Back to Users</a>
 </div>
 
-@if(session('success'))
-    <div class="alert alert-success" style="background:#d4edda;color:#155724;padding:12px 16px;border-radius:8px;margin-bottom:16px;">{{ session('success') }}</div>
-@endif
-@if(session('error'))
-    <div class="alert alert-error" style="background:#f8d7da;color:#721c24;padding:12px 16px;border-radius:8px;margin-bottom:16px;">{{ session('error') }}</div>
-@endif
-
-<div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start;">
 
     {{-- Fund Account --}}
-    <div class="card" style="flex:1;min-width:280px;max-width:420px;">
-        <div class="card-header" style="background:#072b5b;color:#fff;padding:12px 16px;border-radius:8px 8px 0 0;font-weight:600;">
-            Fund Account
+    <div class="card">
+        <div class="card-header" style="background:#072b5b;">
+            <h5 style="color:#fff;">&#128260; Fund Account</h5>
         </div>
-        <div class="card-body" style="padding:20px;">
-            <div style="margin-bottom:14px;font-size:13px;color:#555;">
-                <strong>Current Balance:</strong>
-                <span style="font-size:18px;font-weight:700;color:#072b5b;margin-left:8px;">${{ number_format($user->balance, 2) }}</span>
+        <div class="card-body">
+            <div style="background:#f8f9fc;border-radius:10px;padding:16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                    <div style="font-size:12px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Current Balance</div>
+                    <div style="font-size:28px;font-weight:800;color:#072b5b;margin-top:4px;">${{ number_format($user->balance, 2) }}</div>
+                </div>
+                <div style="font-size:40px;">&#128181;</div>
             </div>
+
             <form action="{{ route('admin.users.fund', $user) }}" method="POST">
                 @csrf
-                <div style="margin-bottom:14px;">
-                    <label style="display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600;">Amount (USD)</label>
+                <div class="form-group">
+                    <label class="form-label">Amount (USD) *</label>
                     <input type="number" name="amount" step="0.01" min="0.01" placeholder="0.00"
-                        style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:15px;box-sizing:border-box;" required>
+                        class="form-control" style="font-size:18px;font-weight:700;" required>
                 </div>
-                <div style="margin-bottom:14px;">
-                    <label style="display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600;">Action</label>
-                    <select name="action" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px;">
-                        <option value="credit">Credit (Add to balance)</option>
-                        <option value="deduct">Deduct (Remove from balance)</option>
-                    </select>
+                <div class="form-group">
+                    <label class="form-label">Action *</label>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                        <label style="cursor:pointer;">
+                            <input type="radio" name="action" value="credit" checked style="margin-right:6px;">
+                            <span style="font-weight:600;color:#28a745;">&#9650; Credit</span>
+                            <div style="font-size:11px;color:#888;margin-top:2px;margin-left:18px;">Add to balance</div>
+                        </label>
+                        <label style="cursor:pointer;">
+                            <input type="radio" name="action" value="deduct" style="margin-right:6px;">
+                            <span style="font-weight:600;color:#dc3545;">&#9660; Deduct</span>
+                            <div style="font-size:11px;color:#888;margin-top:2px;margin-left:18px;">Remove from balance</div>
+                        </label>
+                    </div>
                 </div>
-                <div style="margin-bottom:20px;">
-                    <label style="display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600;">Note (optional)</label>
-                    <input type="text" name="notes" placeholder="e.g. Manual deposit, bonus..."
-                        style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+                <div class="form-group">
+                    <label class="form-label">Note (optional)</label>
+                    <input type="text" name="notes" placeholder="e.g. Manual deposit, bonus credit..."
+                        class="form-control">
                 </div>
-                <button type="submit"
-                    style="width:100%;background:#072b5b;color:#fff;border:none;padding:12px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;">
+                <button type="submit" class="btn btn-primary" style="width:100%;padding:13px;font-size:15px;">
                     Apply Fund
                 </button>
             </form>
         </div>
     </div>
 
-    {{-- Role & Info --}}
-    <div class="card" style="flex:1;min-width:280px;max-width:420px;">
-        <div class="card-header" style="background:#444;color:#fff;padding:12px 16px;border-radius:8px 8px 0 0;font-weight:600;">
-            User Details
-        </div>
-        <div class="card-body" style="padding:20px;">
-            <div style="margin-bottom:16px;font-size:13px;color:#555;line-height:2;">
-                <div><strong>Name:</strong> {{ $user->name }}</div>
-                <div><strong>Email:</strong> {{ $user->email }}</div>
-                <div><strong>Phone:</strong> {{ $user->phone ?? '—' }}</div>
-                <div><strong>Country:</strong> {{ $user->country ?? '—' }}</div>
-                <div><strong>Referral Code:</strong> {{ $user->referral_code }}</div>
-                <div><strong>Joined:</strong> {{ $user->created_at->format('M d, Y') }}</div>
+    {{-- User Info & Role --}}
+    <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="card">
+            <div class="card-header">
+                <h5>&#128100; User Profile</h5>
             </div>
-
-            <form action="{{ route('admin.users.update', $user) }}" method="POST">
-                @csrf
-                @if($errors->any())
-                    <div style="background:#f8d7da;color:#721c24;padding:10px;border-radius:6px;margin-bottom:12px;font-size:13px;">{{ $errors->first() }}</div>
-                @endif
-                <input type="hidden" name="balance" value="{{ $user->balance }}">
-                <div style="margin-bottom:20px;">
-                    <label style="display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600;">Role</label>
-                    <select name="role" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px;">
-                        <option value="user"  {{ $user->role === 'user'  ? 'selected' : '' }}>User</option>
-                        <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
-                    </select>
+            <div class="card-body">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f0f0f0;">
+                    <div style="width:56px;height:56px;border-radius:50%;background:#e8edf5;display:flex;align-items:center;
+                        justify-content:center;font-weight:800;font-size:22px;color:#072b5b;flex-shrink:0;">
+                        {{ strtoupper(substr($user->name,0,1)) }}
+                    </div>
+                    <div>
+                        <div style="font-size:17px;font-weight:700;color:#072b5b;">{{ $user->name }}</div>
+                        <div style="font-size:13px;color:#888;">{{ $user->email }}</div>
+                    </div>
                 </div>
-                <button type="submit"
-                    style="background:#555;color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-size:14px;">
-                    Update Role
-                </button>
-            </form>
+                <table style="font-size:13px;width:100%;">
+                    <tr><td style="color:#888;padding:6px 0;width:120px;">Phone</td><td style="font-weight:500;">{{ $user->phone ?? '—' }}</td></tr>
+                    <tr><td style="color:#888;padding:6px 0;">Country</td><td style="font-weight:500;">{{ $user->country ?? '—' }}</td></tr>
+                    <tr><td style="color:#888;padding:6px 0;">Referral Code</td><td style="font-weight:500;font-family:monospace;">{{ $user->referral_code }}</td></tr>
+                    <tr><td style="color:#888;padding:6px 0;">Joined</td><td style="font-weight:500;">{{ $user->created_at->format('M d, Y') }}</td></tr>
+                    <tr><td style="color:#888;padding:6px 0;">Balance</td><td style="font-weight:700;color:#072b5b;">${{ number_format($user->balance,2) }}</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>&#9881; Change Role</h5>
+            </div>
+            <div class="card-body">
+                @if($errors->any())
+                    <div class="alert alert-error">{{ $errors->first() }}</div>
+                @endif
+                <form action="{{ route('admin.users.update', $user) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="balance" value="{{ $user->balance }}">
+                    <div class="form-group">
+                        <label class="form-label">Role</label>
+                        <select name="role" class="form-control">
+                            <option value="user"  {{ $user->role === 'user'  ? 'selected' : '' }}>User</option>
+                            <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Administrator</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-gray">Update Role</button>
+                </form>
+            </div>
         </div>
     </div>
 
