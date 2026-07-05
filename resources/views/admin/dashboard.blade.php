@@ -4,35 +4,35 @@
 @section('content')
 <div class="stats-grid">
     <div class="stat-card">
-        <div class="stat-icon navy">&#128100;</div>
+        <div class="stat-icon navy">Users</div>
         <div>
             <div class="stat-value">{{ $totalUsers }}</div>
             <div class="stat-label">Total Users</div>
         </div>
     </div>
     <div class="stat-card green">
-        <div class="stat-icon green">&#9650;</div>
+        <div class="stat-icon green">In</div>
         <div>
             <div class="stat-value">${{ number_format($totalDeposited, 0) }}</div>
             <div class="stat-label">Total Deposited</div>
         </div>
     </div>
     <div class="stat-card red">
-        <div class="stat-icon red">&#9660;</div>
+        <div class="stat-icon red">Out</div>
         <div>
             <div class="stat-value">${{ number_format($totalWithdrawn, 0) }}</div>
             <div class="stat-label">Total Withdrawn</div>
         </div>
     </div>
     <div class="stat-card yellow">
-        <div class="stat-icon yellow">&#9203;</div>
+        <div class="stat-icon yellow">Pend</div>
         <div>
             <div class="stat-value">{{ $pendingCount }}</div>
             <div class="stat-label">Pending Transactions</div>
         </div>
     </div>
     <div class="stat-card blue">
-        <div class="stat-icon blue">&#128200;</div>
+        <div class="stat-icon blue">Inv</div>
         <div>
             <div class="stat-value">{{ $activeInvestments }}</div>
             <div class="stat-label">Active Investments</div>
@@ -63,7 +63,7 @@
                 <tr>
                     <td style="font-size:11px;font-family:monospace;color:#666;">{{ $txn->reference }}</td>
                     <td>
-                        <div style="font-weight:600;font-size:13px;">{{ $txn->user->name ?? '—' }}</div>
+                        <div style="font-weight:600;">{{ $txn->user->name ?? '—' }}</div>
                         <div style="font-size:11px;color:#888;">{{ $txn->user->email ?? '' }}</div>
                     </td>
                     <td>{{ ucfirst(str_replace('_',' ',$txn->type)) }}</td>
