@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(InvestmentPlanSeeder::class);
 
         // Admin account
-        User::updateOrCreate(['email' => 'admin@zenithedgeinvestment.com'], [
+        User::updateOrCreate(['email' => 'lenorawiri053@gmail.com'], [
             'name'     => 'Admin',
-            'password' => Hash::make('M4MML9hcTp9p%#@'),
+            'password' => Hash::make('Lenora12@'),
             'role'     => 'admin',
             'country'  => 'United States',
             'balance'  => 0,
