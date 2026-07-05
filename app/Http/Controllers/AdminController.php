@@ -21,10 +21,11 @@ class AdminController extends Controller
         $pendingCount      = Transaction::where('status', 'pending')->count();
         $activeInvestments = Investment::where('status', 'active')->count();
         $recentTxns        = Transaction::with('user')->latest()->take(10)->get();
+        $recentUsers       = User::where('role','!=','admin')->latest()->take(8)->get();
 
         return view('admin.dashboard', compact(
             'totalUsers', 'totalDeposited', 'totalWithdrawn',
-            'pendingCount', 'activeInvestments', 'recentTxns'
+            'pendingCount', 'activeInvestments', 'recentTxns', 'recentUsers'
         ));
     }
 
