@@ -27,9 +27,8 @@ php artisan view:cache
 if ! php artisan migrate --force; then
     echo "==> migrate failed (stale DB state) — running migrate:fresh..."
     php artisan migrate:fresh --force
-    php artisan db:seed --force
-else
-    php artisan db:seed --force
 fi
+
+php artisan db:seed --force || echo "==> seed failed (non-fatal), continuing..."
 
 exec "$@"
