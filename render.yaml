@@ -1,0 +1,69 @@
+services:
+  - type: web
+    name: zenith-edge-investment
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: "Zenith Edge Investment"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        sync: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: MAIL_MAILER
+        value: log
+      - key: MAIL_FROM_ADDRESS
+        sync: false
+      - key: MAIL_FROM_NAME
+        value: "Zenith Edge Investment"
+      - key: PAYMENT_BTC_ADDRESS
+        sync: false
+      - key: PAYMENT_ETH_ADDRESS
+        sync: false
+      - key: PAYMENT_USDT_TRC20_ADDRESS
+        sync: false
+      - key: PAYMENT_USDT_ERC20_ADDRESS
+        sync: false
+      - key: PAYMENT_BANK_NAME
+        sync: false
+      - key: PAYMENT_BANK_ACCOUNT_NAME
+        sync: false
+      - key: PAYMENT_BANK_ACCOUNT_NUMBER
+        sync: false
+      - key: PAYMENT_BANK_ROUTING_NUMBER
+        sync: false
+      - key: PAYMENT_BANK_SWIFT_CODE
+        sync: false
+      - key: PAYMENT_BANK_COUNTRY
+        sync: false
