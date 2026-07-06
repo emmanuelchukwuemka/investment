@@ -34,8 +34,8 @@
                 <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px">As a financial institution, we always conduct business openly and legally within the framework of international financial legislation.</p>
                 <div style="display:flex;gap:12px;flex-wrap:wrap">
                     <a href="{{ route('contact') }}" class="zei-btn zei-btn-green zei-btn-lg">Get Started</a>
-                    <a href="https://api.whatsapp.com/send?phone=+19253015238" class="zei-btn zei-btn-lg" style="border:2px solid var(--navy);color:var(--navy);background:transparent">
-                        +1 (925) 301-5238
+                    <a href="https://api.whatsapp.com/send?phone=+15413211863" class="zei-btn zei-btn-lg" style="border:2px solid var(--navy);color:var(--navy);background:transparent">
+                        +1 (541) 321-1863
                     </a>
                 </div>
             </div>
