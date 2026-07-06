@@ -8,9 +8,18 @@ sed -i "s/:80>/:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 
 cd /var/www/html
 
+# Ensure writable storage directories exist
+mkdir -p storage/framework/views \
+         storage/framework/cache/data \
+         storage/framework/sessions \
+         storage/logs \
+         bootstrap/cache
+
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
 php artisan config:cache
 php artisan route:cache
-php artisan view:clear
 php artisan view:cache
 php artisan migrate --force
 php artisan db:seed --force
