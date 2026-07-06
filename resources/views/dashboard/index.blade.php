@@ -1,156 +1,151 @@
 @extends('layouts.app')
-
 @section('title', 'Dashboard | Zenith Edge Investment')
-
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
-    <div class="container">
-        <div class="heading-nav gap-4 mt-32">
-            <a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a>
-            <i class="ph ph-caret-double-right text-white"></i>
-            <div class="caption1 text-white">Dashboard</div>
-        </div>
-        <div class="text-nav">
-            <div class="heading3 text-white">My Dashboard</div>
-        </div>
-    </div>
-</div>
 
-<div class="form-contact style-one mt-60">
+<div class="zei-dash">
     <div class="container">
 
-        {{-- Welcome & Balance --}}
-        <div class="row row-gap-24 mb-40">
-            <div class="col-12 col-md-4">
-                <div class="bg-surface bora-16 p-32 text-center hover-box-shadow">
-                    <i class="icon-wallet text-blue fs-48"></i>
-                    <div class="heading4 mt-16">${{ number_format(Auth::user()->balance, 2) }}</div>
-                    <div class="body3 text-secondary mt-4">Account Balance</div>
+        {{-- Welcome Header --}}
+        <div style="margin-bottom:32px">
+            <h1 style="font-size:1.6rem;font-weight:900;color:var(--navy);margin:0 0 4px">Welcome back, {{ Auth::user()->name }}</h1>
+            <p style="color:var(--muted);font-size:14px;margin:0">Manage your investments and track your portfolio performance.</p>
+        </div>
+
+        {{-- STAT CARDS --}}
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="zei-dash-stat">
+                    <div class="zei-dash-stat-icon"><i class="icon-wallet"></i></div>
+                    <div class="zei-dash-stat-num">${{ number_format(Auth::user()->balance, 2) }}</div>
+                    <div class="zei-dash-stat-label">Account Balance</div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="bg-surface bora-16 p-32 text-center hover-box-shadow">
-                    <i class="icon-rocket text-blue fs-48"></i>
-                    <div class="heading4 mt-16">{{ $activeInvestments }}</div>
-                    <div class="body3 text-secondary mt-4">Active Investments</div>
+            <div class="col-md-4">
+                <div class="zei-dash-stat" style="border-left-color:var(--blue)">
+                    <div class="zei-dash-stat-icon" style="color:var(--blue)"><i class="icon-rocket"></i></div>
+                    <div class="zei-dash-stat-num">{{ $activeInvestments }}</div>
+                    <div class="zei-dash-stat-label">Active Investments</div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="bg-surface bora-16 p-32 text-center hover-box-shadow">
-                    <i class="icon-user-happy text-blue fs-48"></i>
-                    <div class="heading4 mt-16">{{ $totalReferrals }}</div>
-                    <div class="body3 text-secondary mt-4">Total Referrals</div>
+            <div class="col-md-4">
+                <div class="zei-dash-stat" style="border-left-color:var(--gold)">
+                    <div class="zei-dash-stat-icon" style="color:var(--gold)"><i class="icon-user-happy"></i></div>
+                    <div class="zei-dash-stat-num">{{ $totalReferrals }}</div>
+                    <div class="zei-dash-stat-label">Total Referrals</div>
                 </div>
             </div>
         </div>
 
-        {{-- Referral Link --}}
-        <div class="bg-surface bora-16 p-32 mb-40">
-            <div class="heading6 mb-16">Your Referral Link</div>
-            <div class="flex-item-center gap-12">
-                <input type="text" id="refLink" value="{{ url('/register?ref=' . Auth::user()->referral_code) }}"
-                    class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8" readonly>
-                <button onclick="copyRef()" class="button-share bg-blue text-white text-button pl-20 pr-20 pt-12 pb-12 bora-8" style="white-space:nowrap;">Copy</button>
+        {{-- REFERRAL LINK --}}
+        <div class="zei-dash-panel mb-4">
+            <div class="zei-panel-title">Your Referral Link</div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <input type="text" id="refLink" value="{{ url('/register?ref=' . Auth::user()->referral_code) }}" class="zei-inp" style="flex:1;min-width:200px;background:var(--bg)" readonly>
+                <button onclick="copyRef()" class="zei-btn zei-btn-navy" style="white-space:nowrap">Copy Link</button>
             </div>
-            <div class="caption2 text-secondary mt-8">Earn 10% commission on Level 1 referrals and 10% on Level 2 referrals.</div>
+            <p style="font-size:13px;color:var(--muted);margin:10px 0 0">Earn <strong>10%</strong> on Level 1 referral deposits and <strong>10%</strong> on Level 2 sub-referral profits.</p>
         </div>
 
-        <div class="row row-gap-32">
-
-            {{-- DEPOSIT --}}
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="bg-surface bora-16 p-32 hover-box-shadow">
-                    <div class="heading6 mb-20">Make a Deposit</div>
+        {{-- ACTION PANELS --}}
+        <div class="row g-4 mb-4">
+            <div class="col-lg-4">
+                <div class="zei-dash-panel">
+                    <div class="zei-panel-title">Make a Deposit</div>
                     <form action="{{ route('dashboard.deposit') }}" method="POST">
                         @csrf
-                        <label class="caption1 text-secondary">Amount (USD)</label>
-                        <input type="number" name="amount" min="10" step="0.01"
-                            class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8"
-                            placeholder="Enter amount" required>
-                        <label class="caption1 text-secondary mt-12 display-block">Payment Method</label>
-                        <select name="payment_method" class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8" required>
-                            <option value="bitcoin">Bitcoin (BTC)</option>
-                            <option value="ethereum">Ethereum (ETH)</option>
-                            <option value="usdt">USDT (TRC20)</option>
-                            <option value="bank">Bank Transfer</option>
-                        </select>
-                        <button type="submit" class="button-share bg-blue text-white text-button pl-28 pr-28 pt-12 pb-12 bora-8 w-100 mt-20">Submit Deposit</button>
+                        <div class="zei-fg">
+                            <label>Amount (USD)</label>
+                            <input type="number" name="amount" min="10" step="0.01" class="zei-inp" placeholder="Enter amount" required>
+                        </div>
+                        <div class="zei-fg">
+                            <label>Payment Method</label>
+                            <select name="payment_method" class="zei-sel" required>
+                                <option value="bitcoin">Bitcoin (BTC)</option>
+                                <option value="ethereum">Ethereum (ETH)</option>
+                                <option value="usdt">USDT (TRC20)</option>
+                                <option value="bank">Bank Transfer</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="zei-btn zei-btn-green" style="width:100%;justify-content:center;padding:12px">Submit Deposit</button>
                     </form>
                 </div>
             </div>
 
-            {{-- WITHDRAW --}}
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="bg-surface bora-16 p-32 hover-box-shadow">
-                    <div class="heading6 mb-20">Request Withdrawal</div>
+            <div class="col-lg-4">
+                <div class="zei-dash-panel">
+                    <div class="zei-panel-title">Request Withdrawal</div>
                     <form action="{{ route('dashboard.withdraw') }}" method="POST">
                         @csrf
-                        <label class="caption1 text-secondary">Amount (USD)</label>
-                        <input type="number" name="amount" min="10" step="0.01"
-                            class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8"
-                            placeholder="Enter amount" required>
-                        <label class="caption1 text-secondary mt-12 display-block">Wallet / Account</label>
-                        <input type="text" name="payment_method"
-                            class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8"
-                            placeholder="BTC address or bank account" required>
-                        <button type="submit" class="button-share bg-blue text-white text-button pl-28 pr-28 pt-12 pb-12 bora-8 w-100 mt-20">Request Withdrawal</button>
+                        <div class="zei-fg">
+                            <label>Amount (USD)</label>
+                            <input type="number" name="amount" min="10" step="0.01" class="zei-inp" placeholder="Enter amount" required>
+                        </div>
+                        <div class="zei-fg">
+                            <label>Wallet / Account</label>
+                            <input type="text" name="payment_method" class="zei-inp" placeholder="BTC address or bank account" required>
+                        </div>
+                        <button type="submit" class="zei-btn zei-btn-navy" style="width:100%;justify-content:center;padding:12px">Request Withdrawal</button>
                     </form>
                 </div>
             </div>
 
-            {{-- INVEST --}}
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="bg-surface bora-16 p-32 hover-box-shadow">
-                    <div class="heading6 mb-20">Start Investment</div>
+            <div class="col-lg-4">
+                <div class="zei-dash-panel">
+                    <div class="zei-panel-title">Start Investment</div>
                     <form action="{{ route('dashboard.invest') }}" method="POST">
                         @csrf
-                        <label class="caption1 text-secondary">Select Plan</label>
-                        <select name="plan_id" class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8" required>
-                            <option value="">Choose a plan</option>
-                            @foreach($plans as $plan)
-                                <option value="{{ $plan->id }}">{{ $plan->name }} — {{ $plan->roi_percent }}% ROI / {{ $plan->duration_days }}d (Min: ${{ number_format($plan->min_amount, 0) }})</option>
-                            @endforeach
-                        </select>
-                        <label class="caption1 text-secondary mt-12 display-block">Amount (USD)</label>
-                        <input type="number" name="amount" min="1" step="0.01"
-                            class="w-100 bg-white text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8 mt-8"
-                            placeholder="Enter amount" required>
-                        <button type="submit" class="button-share bg-blue text-white text-button pl-28 pr-28 pt-12 pb-12 bora-8 w-100 mt-20">Invest Now</button>
+                        <div class="zei-fg">
+                            <label>Select Plan</label>
+                            <select name="plan_id" class="zei-sel" required>
+                                <option value="">Choose a plan</option>
+                                @foreach($plans as $plan)
+                                <option value="{{ $plan->id }}">{{ $plan->name }} &mdash; {{ $plan->roi_percent }}% / {{ $plan->duration_days }}d (Min: ${{ number_format($plan->min_amount, 0) }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="zei-fg">
+                            <label>Amount (USD)</label>
+                            <input type="number" name="amount" min="1" step="0.01" class="zei-inp" placeholder="Enter amount" required>
+                        </div>
+                        <button type="submit" class="zei-btn zei-btn-green" style="width:100%;justify-content:center;padding:12px">Invest Now</button>
                     </form>
                 </div>
             </div>
         </div>
 
-        {{-- Recent Investments --}}
-        <div class="mt-60">
-            <div class="heading6 mb-20">My Investments</div>
+        {{-- MY INVESTMENTS --}}
+        <div class="zei-dash-panel mb-4">
+            <div class="zei-panel-title">My Investments</div>
             @if($investments->isEmpty())
-                <div class="bg-surface bora-16 p-32 text-center text-secondary">No investments yet. Start investing today!</div>
+            <div style="text-align:center;padding:40px;color:var(--muted)">
+                <div style="font-size:2rem;margin-bottom:12px">&#128200;</div>
+                <div style="font-size:15px;font-weight:600;margin-bottom:6px">No investments yet</div>
+                <div style="font-size:14px">Start investing today to see your portfolio here.</div>
+            </div>
             @else
-            <div style="overflow-x:auto;">
-                <table style="width:100%;border-collapse:collapse;">
+            <div class="zei-table-wrap">
+                <table class="zei-table">
                     <thead>
-                        <tr style="background:#072b5b;color:white;">
-                            <th style="padding:12px 16px;text-align:left;">Plan</th>
-                            <th style="padding:12px 16px;text-align:left;">Amount</th>
-                            <th style="padding:12px 16px;text-align:left;">ROI</th>
-                            <th style="padding:12px 16px;text-align:left;">Status</th>
-                            <th style="padding:12px 16px;text-align:left;">Ends At</th>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Amount</th>
+                            <th>ROI</th>
+                            <th>Status</th>
+                            <th>Ends At</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($investments as $inv)
-                        <tr style="border-bottom:1px solid #eee;">
-                            <td style="padding:12px 16px;">{{ $inv->plan->name ?? 'N/A' }}</td>
-                            <td style="padding:12px 16px;">${{ number_format($inv->amount, 2) }}</td>
-                            <td style="padding:12px 16px;">${{ number_format($inv->roi_amount, 2) }}</td>
-                            <td style="padding:12px 16px;">
-                                <span style="padding:4px 10px;border-radius:20px;font-size:12px;background:{{ $inv->status=='active' ? '#d4edda' : ($inv->status=='completed' ? '#cce5ff' : '#f8d7da') }};color:{{ $inv->status=='active' ? '#155724' : ($inv->status=='completed' ? '#004085' : '#721c24') }};">
+                        <tr>
+                            <td style="font-weight:600;color:var(--navy)">{{ $inv->plan->name ?? 'N/A' }}</td>
+                            <td>${{ number_format($inv->amount, 2) }}</td>
+                            <td style="color:var(--green);font-weight:700">${{ number_format($inv->roi_amount, 2) }}</td>
+                            <td>
+                                <span class="zei-badge {{ $inv->status=='active' ? 'zei-badge-green' : ($inv->status=='completed' ? 'zei-badge-blue' : 'zei-badge-red') }}">
                                     {{ ucfirst($inv->status) }}
                                 </span>
                             </td>
-                            <td style="padding:12px 16px;">{{ $inv->ends_at ? $inv->ends_at->format('M d, Y') : '—' }}</td>
+                            <td style="color:var(--muted)">{{ $inv->ends_at ? $inv->ends_at->format('M d, Y') : '—' }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -159,35 +154,39 @@
             @endif
         </div>
 
-        {{-- Recent Transactions --}}
-        <div class="mt-60">
-            <div class="heading6 mb-20">Recent Transactions</div>
+        {{-- RECENT TRANSACTIONS --}}
+        <div class="zei-dash-panel">
+            <div class="zei-panel-title">Recent Transactions</div>
             @if($transactions->isEmpty())
-                <div class="bg-surface bora-16 p-32 text-center text-secondary">No transactions yet.</div>
+            <div style="text-align:center;padding:40px;color:var(--muted)">
+                <div style="font-size:2rem;margin-bottom:12px">&#128203;</div>
+                <div style="font-size:15px;font-weight:600;margin-bottom:6px">No transactions yet</div>
+                <div style="font-size:14px">Your transaction history will appear here.</div>
+            </div>
             @else
-            <div style="overflow-x:auto;">
-                <table style="width:100%;border-collapse:collapse;">
+            <div class="zei-table-wrap">
+                <table class="zei-table">
                     <thead>
-                        <tr style="background:#072b5b;color:white;">
-                            <th style="padding:12px 16px;text-align:left;">Reference</th>
-                            <th style="padding:12px 16px;text-align:left;">Type</th>
-                            <th style="padding:12px 16px;text-align:left;">Amount</th>
-                            <th style="padding:12px 16px;text-align:left;">Status</th>
-                            <th style="padding:12px 16px;text-align:left;">Date</th>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($transactions as $txn)
-                        <tr style="border-bottom:1px solid #eee;">
-                            <td style="padding:12px 16px;font-size:12px;">{{ $txn->reference }}</td>
-                            <td style="padding:12px 16px;">{{ ucfirst($txn->type) }}</td>
-                            <td style="padding:12px 16px;">${{ number_format($txn->amount, 2) }}</td>
-                            <td style="padding:12px 16px;">
-                                <span style="padding:4px 10px;border-radius:20px;font-size:12px;background:{{ $txn->status=='approved' ? '#d4edda' : ($txn->status=='pending' ? '#fff3cd' : '#f8d7da') }};color:{{ $txn->status=='approved' ? '#155724' : ($txn->status=='pending' ? '#856404' : '#721c24') }};">
+                        <tr>
+                            <td style="font-size:12px;font-family:monospace;color:var(--muted)">{{ $txn->reference }}</td>
+                            <td style="font-weight:600;text-transform:capitalize">{{ str_replace('_',' ',$txn->type) }}</td>
+                            <td style="font-weight:700">${{ number_format($txn->amount, 2) }}</td>
+                            <td>
+                                <span class="zei-badge {{ $txn->status=='approved' ? 'zei-badge-green' : ($txn->status=='pending' ? 'zei-badge-yellow' : 'zei-badge-red') }}">
                                     {{ ucfirst($txn->status) }}
                                 </span>
                             </td>
-                            <td style="padding:12px 16px;">{{ $txn->created_at->format('M d, Y') }}</td>
+                            <td style="color:var(--muted)">{{ $txn->created_at->format('M d, Y') }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -198,15 +197,16 @@
 
     </div>
 </div>
+
 @endsection
 
 @section('scripts')
 <script>
-function copyRef() {
-    var el = document.getElementById('refLink');
+function copyRef(){
+    var el=document.getElementById('refLink');
     el.select();
     document.execCommand('copy');
-    alert('Referral link copied!');
+    alert('Referral link copied to clipboard!');
 }
 </script>
 @endsection

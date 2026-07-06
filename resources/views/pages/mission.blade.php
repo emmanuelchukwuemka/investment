@@ -1,30 +1,35 @@
 @extends('layouts.app')
 @section('title', 'Our Mission | Zenith Edge Investment')
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
+<div class="zei-page-hero">
+    <img src="{{ asset('lassets/images/banner/contact.png') }}" alt="Mission" class="zei-page-hero-bg">
+    <div class="zei-page-hero-overlay"></div>
     <div class="container">
-        <div class="heading-nav gap-4 mt-32"><a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a><i class="ph ph-caret-double-right text-white"></i><div class="caption1 text-white">Our Mission</div></div>
-        <div class="text-nav"><div class="heading3 text-white">Our Mission</div></div>
+        <div class="zei-page-hero-content">
+            <div class="zei-breadcrumb"><a href="{{ route('home') }}">Home</a><span class="sep">&#8250;</span><span class="cur">Our Mission</span></div>
+            <h1 class="zei-page-title">Our Mission</h1>
+        </div>
     </div>
 </div>
-<div class="form-contact style-one mt-100">
+<div class="zei-section">
     <div class="container">
-        <div class="row flex-item-center row-gap-40">
-            <div class="col-12 col-lg-6">
-                <div class="heading3">Our Mission</div>
-                <div class="body3 text-secondary mt-20">Our mission is to provide comprehensive and personalized financial solutions that empower our clients to achieve their financial goals and secure their future. We are committed to transparency, integrity, and excellence in everything we do.</div>
-                <div class="more-infor mt-40">
-                    <div class="infor flex-item-center gap-12"><i class="ph-fill ph-check-circle fs-20 text-blue"></i><div class="text-button">Management and calculation of monthly expenses</div></div>
-                    <div class="infor flex-item-center gap-12 mt-16"><i class="ph-fill ph-check-circle fs-20 text-blue"></i><div class="text-button">Identification of monthly income streams</div></div>
-                    <div class="infor flex-item-center gap-12 mt-16"><i class="ph-fill ph-check-circle fs-20 text-blue"></i><div class="text-button">Creation of savings and investment plan</div></div>
-                    <div class="infor flex-item-center gap-12 mt-16"><i class="ph-fill ph-check-circle fs-20 text-blue"></i><div class="text-button">Long-term wealth preservation strategy</div></div>
-                    <div class="infor flex-item-center gap-12 mt-16"><i class="ph-fill ph-check-circle fs-20 text-blue"></i><div class="text-button">Risk assessment and management</div></div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="zei-label">Our Purpose</span>
+                <h2 class="zei-title">Empowering Financial<br>Independence</h2>
+                <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px">Our mission is to provide comprehensive and personalized financial solutions that empower our clients to achieve their financial goals and secure their future. We are committed to transparency, integrity, and excellence.</p>
+                <div class="d-flex flex-column gap-3 mb-4">
+                    @foreach(['Management and calculation of monthly expenses','Identification of monthly income streams','Creation of savings and investment plans','Long-term wealth preservation strategy','Risk assessment and management'] as $item)
+                    <div style="display:flex;gap:12px;align-items:center">
+                        <div style="width:22px;height:22px;border-radius:50%;background:rgba(5,150,105,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">&#10003;</div>
+                        <span style="font-size:14px;font-weight:500;color:var(--text)">{{ $item }}</span>
+                    </div>
+                    @endforeach
                 </div>
-                <div class="button-block mt-40"><a class="button-share bg-blue text-white text-button pl-36 pr-36 pt-12 pb-12 bora-8" href="{{ route('contact') }}">Get Started</a></div>
+                <a href="{{ route('contact') }}" class="zei-btn zei-btn-green zei-btn-lg">Get Started</a>
             </div>
-            <div class="col-12 col-lg-5">
-                <div class="bg-img w-100 bora-16 overflow-hidden"><img class="w-100" src="{{ asset('img/office.jpg') }}" alt="Mission"></div>
+            <div class="col-lg-6">
+                <img src="{{ asset('img/office.jpg') }}" alt="Our Mission" style="width:100%;height:420px;object-fit:cover;border-radius:16px">
             </div>
         </div>
     </div>

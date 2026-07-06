@@ -115,7 +115,104 @@
 
 </div>
 
+<!-- Manage Investments -->
+<div class="card" style="margin-top:22px;">
+    <div class="card-head" style="background:#065f46;border-radius:12px 12px 0 0;">
+        <h5 style="color:#fff;">Manage Investments</h5>
+    </div>
+    <div class="card-body">
+
+        <!-- Add new investment -->
+        <form action="{{ route('admin.users.invest', $user) }}" method="POST" style="margin-bottom:28px;">
+            @csrf
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;" class="inv-form-grid">
+                <div class="fgroup" style="margin:0">
+                    <label class="flabel">Plan</label>
+                    <select name="plan_id" class="finput" required>
+                        <option value="">Select plan</option>
+                        @foreach($plans as $plan)
+                        <option value="{{ $plan->id }}">{{ $plan->name }} ({{ $plan->roi_percent }}%)</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="fgroup" style="margin:0">
+                    <label class="flabel">Amount (USD)</label>
+                    <input type="number" name="amount" step="0.01" min="0.01" placeholder="e.g. 1000" class="finput" required>
+                </div>
+                <div class="fgroup" style="margin:0">
+                    <label class="flabel">Status</label>
+                    <select name="status" class="finput">
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="fgroup" style="margin:0">
+                    <label class="flabel">Ends At (optional)</label>
+                    <input type="date" name="ends_at" class="finput">
+                </div>
+                <button type="submit" class="btn btn-navy" style="white-space:nowrap;padding:10px 18px;">+ Add</button>
+            </div>
+        </form>
+
+        <!-- Existing investments table -->
+        @if($investments->isEmpty())
+        <div style="text-align:center;padding:28px;color:#aaa;font-size:14px;">No investments for this user yet.</div>
+        @else
+        <div style="overflow-x:auto;border-radius:10px;border:1px solid #e5e7eb;">
+            <table style="width:100%;border-collapse:collapse;font-size:13px;">
+                <thead>
+                    <tr style="background:#0d1b3e;color:#fff;">
+                        <th style="padding:11px 14px;text-align:left;">Plan</th>
+                        <th style="padding:11px 14px;text-align:left;">Amount</th>
+                        <th style="padding:11px 14px;text-align:left;">ROI</th>
+                        <th style="padding:11px 14px;text-align:left;">Status</th>
+                        <th style="padding:11px 14px;text-align:left;">Ends At</th>
+                        <th style="padding:11px 14px;text-align:left;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($investments as $inv)
+                    <tr style="border-bottom:1px solid #f0f0f0;">
+                        <td style="padding:10px 14px;font-weight:600;color:#0d1b3e;">{{ $inv->plan->name ?? '—' }}</td>
+                        <td style="padding:10px 14px;">${{ number_format($inv->amount, 2) }}</td>
+                        <td style="padding:10px 14px;color:#16a34a;font-weight:700;">${{ number_format($inv->roi_amount, 2) }}</td>
+                        <td style="padding:10px 14px;">
+                            @if($inv->status === 'active')
+                                <span style="background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;">Active</span>
+                            @elseif($inv->status === 'completed')
+                                <span style="background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;">Completed</span>
+                            @else
+                                <span style="background:#fee2e2;color:#991b1b;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;">{{ ucfirst($inv->status) }}</span>
+                            @endif
+                        </td>
+                        <td style="padding:10px 14px;color:#888;">{{ $inv->ends_at ? $inv->ends_at->format('M d, Y') : '—' }}</td>
+                        <td style="padding:10px 14px;">
+                            @if($inv->status === 'active')
+                            <div style="display:flex;gap:6px;">
+                                <form action="{{ route('admin.investments.complete', $inv) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" style="background:#1e40af;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600;">Complete</button>
+                                </form>
+                                <form action="{{ route('admin.investments.cancel', $inv) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" style="background:#dc2626;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600;">Cancel</button>
+                                </form>
+                            </div>
+                            @else
+                            <span style="color:#ccc;font-size:12px;">—</span>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        @endif
+    </div>
+</div>
+
 <style>
-@media(max-width:700px){.edit-grid{grid-template-columns:1fr!important}}
+@media(max-width:700px){.edit-grid{grid-template-columns:1fr!important}.inv-form-grid{grid-template-columns:1fr 1fr!important}}
 </style>
 @endsection

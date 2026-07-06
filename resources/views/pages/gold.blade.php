@@ -1,21 +1,40 @@
 @extends('layouts.app')
-@section('title', 'Gold | Zenith Edge Investment')
+@section('title', 'Gold Investment | Zenith Edge Investment')
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
+<div class="zei-page-hero">
+    <img src="{{ asset('lassets/images/banner/contact.png') }}" alt="Gold" class="zei-page-hero-bg">
+    <div class="zei-page-hero-overlay"></div>
     <div class="container">
-        <div class="heading-nav gap-4 mt-32"><a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a><i class="ph ph-caret-double-right text-white"></i><div class="caption1 text-white">Gold</div></div>
-        <div class="text-nav"><div class="heading3 text-white">Gold</div></div>
+        <div class="zei-page-hero-content">
+            <div class="zei-breadcrumb"><a href="{{ route('home') }}">Home</a><span class="sep">&#8250;</span><span class="cur">Gold</span></div>
+            <h1 class="zei-page-title">Gold Investment</h1>
+            <p class="zei-page-sub">One of the world's most trusted stores of value, managed by our expert traders.</p>
+        </div>
     </div>
 </div>
-<div class="form-contact style-one mt-100">
+<div class="zei-section">
     <div class="container">
-        @if(file_exists(public_path('img/gold1.jpg')))
-        <img src="{{ asset('img/gold1.jpg') }}" class="w-100 bora-16 mb-40" style="max-height:400px;object-fit:cover;" alt="Gold">
-        @endif
-        <h2 class="intro-heading uppercase">Gold</h2>
-        <p class="intro-text-lead">From the time of ancient civilizations to the modern era, gold has been the world's currency of choice. Today, investors buy gold mainly as a hedge against political unrest and inflation. In addition, many top investment advisors recommend a portfolio allocation in commodities, including gold, in order to lower overall portfolio risk.</p>
-        <div class="button-block mt-40"><a class="button-share bg-blue text-white text-button pl-36 pr-36 pt-12 pb-12 bora-8" href="{{ route('register') }}">Start Investing in Gold</a></div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                @if(file_exists(public_path('img/gold1.jpg')))
+                <img src="{{ asset('img/gold1.jpg') }}" alt="Gold Investment" style="width:100%;height:400px;object-fit:cover;border-radius:16px">
+                @else
+                <div style="height:400px;background:linear-gradient(135deg,#d97706,#f59e0b);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:80px">&#128948;</div>
+                @endif
+            </div>
+            <div class="col-lg-6">
+                <span class="zei-label">Precious Metals</span>
+                <h2 class="zei-title">Invest in Gold</h2>
+                <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px">From ancient civilizations to the modern era, gold has been the world's currency of choice. Today, investors buy gold as a hedge against political unrest and inflation.</p>
+                <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:28px">Many top investment advisors recommend portfolio allocation in commodities, including gold, to lower overall portfolio risk and protect purchasing power over time.</p>
+                <div class="d-flex flex-column gap-3 mb-4">
+                    @foreach(['Hedge against inflation and currency devaluation','Safe-haven asset during market volatility','Physical asset with intrinsic value','Liquid market with global demand'] as $item)
+                    <div style="display:flex;gap:12px;align-items:center"><div style="width:22px;height:22px;border-radius:50%;background:rgba(217,119,6,.12);color:#d97706;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">&#10003;</div><span style="font-size:14px;font-weight:500">{{ $item }}</span></div>
+                    @endforeach
+                </div>
+                <a href="{{ route('register') }}" class="zei-btn zei-btn-green zei-btn-lg">Start Investing in Gold</a>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

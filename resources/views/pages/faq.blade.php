@@ -1,92 +1,74 @@
 @extends('layouts.app')
-
 @section('title', 'FAQs | Zenith Edge Investment')
-
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
+
+<div class="zei-page-hero">
+    <img src="{{ asset('lassets/images/banner/contact.png') }}" alt="FAQs" class="zei-page-hero-bg">
+    <div class="zei-page-hero-overlay"></div>
     <div class="container">
-        <div class="heading-nav gap-4 mt-32"><a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a><i class="ph ph-caret-double-right text-white"></i>
-            <div class="caption1 text-white">FAQs</div>
-        </div>
-        <div class="text-nav">
-            <div class="heading3 text-white">FAQs</div>
-            <div class="sub-heading mt-8 text-white fw-400">Explore our frequently asked questions and our answers to them.</div>
+        <div class="zei-page-hero-content">
+            <div class="zei-breadcrumb">
+                <a href="{{ route('home') }}">Home</a>
+                <span class="sep">&#8250;</span>
+                <span class="cur">FAQs</span>
+            </div>
+            <h1 class="zei-page-title">Frequently Asked Questions</h1>
+            <p class="zei-page-sub">Find quick answers to the most common questions about our platform.</p>
         </div>
     </div>
 </div>
 
-<div class="faq-block mt-100">
+<div class="zei-section">
     <div class="container">
-        <div class="row flex-center">
-            <div class="col-12 col-lg-8">
-                <div class="list-question">
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">How to register in the project?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">In order to register in this project, you need to click on the "Registration" button at the top of the page and fill in the required fields of the questionnaire.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">Who is allowed to register and participate in this investment project?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">Any adult citizen. The country of residence does not matter.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">Is the investor obligated to provide reliable information about himself?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">No, you can remain anonymous and decide what information to provide.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">How do I access my personal cabinet?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">To log in, you must use the login and password that you have chosen and indicated during the registration.</div></div>
-                    </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                @php
+                $faqs = [
+                    ['q'=>'How do I register in the project?','a'=>'Click the "Create Account" button at the top of the page and fill in the required fields. Registration takes less than 2 minutes.'],
+                    ['q'=>'Who is allowed to register and participate?','a'=>'Any adult citizen over 18 years of age. The country of residence does not matter — we serve clients in 23+ countries.'],
+                    ['q'=>'Is the investor required to provide personal information?','a'=>'Basic information is needed to create your account. You decide what additional details to provide.'],
+                    ['q'=>'How do I access my personal dashboard?','a'=>'Use the email and password you chose during registration to sign in at zenithedgeinvest.xyz/login.'],
+                    ['q'=>'From which devices can I access my account?','a'=>'Any device — smartphone, tablet, or computer. Your dashboard is fully mobile-responsive.'],
+                    ['q'=>'What if I forgot my password?','a'=>'Use the "Forgot Password" link on the login page to reset your password via email, or contact our support team.'],
+                    ['q'=>'How quickly do I need to make a deposit after registration?','a'=>'Take all the time you need. Study the investment plans carefully before making any deposit.'],
+                    ['q'=>'When do my investment returns start?','a'=>'Returns begin accruing from the moment your deposit is confirmed and your investment plan is activated.'],
+                    ['q'=>'Is there a fee for withdrawing profits?','a'=>'No — all withdrawals are processed without commission. The minimum withdrawal amount is $10.'],
+                    ['q'=>'How do I join the referral program?','a'=>'You are automatically enrolled when you register. Your unique referral link is available in your dashboard.'],
+                    ['q'=>'How many referral levels are there?','a'=>'Two levels — you earn 10% on Level 1 referral deposits and 10% on Level 2 sub-referral profits.'],
+                ];
+                @endphp
+                @foreach($faqs as $faq)
+                <div class="zei-faq-item">
+                    <button class="zei-faq-q" onclick="toggleFaq(this)">
+                        {{ $faq['q'] }}
+                        <span class="zei-faq-icon">+</span>
+                    </button>
+                    <div class="zei-faq-a">{{ $faq['a'] }}</div>
                 </div>
-                <div class="list-question mt-40">
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">From which device can I access my personal cabinet?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">From any: phone, tablet, computer.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">What should I do if I forgot my password for logging in to my account?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">You can use the form to recover passwords or contact customer support.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">How quickly after registration does the investor need to make a deposit?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">At any convenient time. After registration, you can carefully study the conditions of the service plans and only after that make the deposit.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">When do accrual to my deposit start?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">All accruals are carried every second. Just as you wish.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">Is there a fee for withdrawing profits?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">No, all payments are instant and conducted without commissions. The minimum withdrawal amount is $10.50 BTC.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">How to become a member of the referral program?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">It is enough to be a registered participant in the project. Your referral link is stored in your personal cabinet.</div></div>
-                    </div>
-                    <div class="question-item hover-box-shadow pointer mt-20 pl-28 pr-28 bora-8 border-line-1px">
-                        <div class="question-item-main flex-between pt-16 pb-16 heading7">How many levels are there in the referral system?<i class="ph-bold ph-plus fs-20 p-8"></i></div>
-                        <div class="content-question"><div class="border-line"></div><div class="body3 text-secondary pt-16 pb-16">There are two levels in the referral system of our project, this will allow you to make profit from sub-referrals.</div></div>
-                    </div>
+                @endforeach
+
+                <div style="background:linear-gradient(135deg,var(--navy) 0%,#1a4080 100%);border-radius:16px;padding:36px;text-align:center;margin-top:48px">
+                    <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin:0 0 10px">Still Have Questions?</h3>
+                    <p style="color:rgba(255,255,255,.7);font-size:14px;margin:0 0 24px">Our support team is available 24/7 to help you with anything.</p>
+                    <a href="{{ route('contact') }}" class="zei-btn zei-btn-green zei-btn-lg">Contact Support</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="more-question-block mt-100">
-    <div class="container">
-        <div class="row flex-center">
-            <div class="col-12 col-lg-8">
-                <div class="content bg-gradient-blue bora-16 flex-columns-center gap-16 pt-32 pb-32 pl-28 pr-28">
-                    <div class="bg-img w-120"><img class="w-100" src="{{ asset('lassets/images/component/avatar-group.png') }}" alt=""></div>
-                    <div class="text text-center">
-                        <div class="heading6 text-white">Still have questions?</div>
-                        <div class="body3 text-white mt-8">Can't find the answer you're looking for? Please chat to our friendly team.</div>
-                    </div>
-                    <a class="button-share hover-button-black bg-blue text-white text-button pl-36 pr-36 pt-12 pb-12 bora-48" href="{{ route('contact') }}">Chat Center</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@endsection
+
+@section('scripts')
+<script>
+function toggleFaq(btn){
+    var a=btn.nextElementSibling;
+    var isOpen=btn.classList.contains('open');
+    document.querySelectorAll('.zei-faq-q').forEach(function(b){
+        b.classList.remove('open');
+        b.nextElementSibling.classList.remove('open');
+    });
+    if(!isOpen){btn.classList.add('open');a.classList.add('open');}
+}
+</script>
 @endsection

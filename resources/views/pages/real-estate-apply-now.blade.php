@@ -1,68 +1,49 @@
 @extends('layouts.app')
-
-@section('title', 'Real Estate Apply Now | Zenith Edge Investment')
-
+@section('title', 'Real Estate Application | Zenith Edge Investment')
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
+<div class="zei-page-hero">
+    <img src="{{ asset('lassets/images/banner/contact.png') }}" alt="Apply Now" class="zei-page-hero-bg">
+    <div class="zei-page-hero-overlay"></div>
     <div class="container">
-        <div class="heading-nav gap-4 mt-32">
-            <a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a>
-            <i class="ph ph-caret-double-right text-white"></i>
-            <div class="caption1 text-white">Real Estate Apply Now</div>
-        </div>
-        <div class="text-nav">
-            <div class="heading3 text-white">Real Estate Apply Now</div>
+        <div class="zei-page-hero-content">
+            <div class="zei-breadcrumb"><a href="{{ route('home') }}">Home</a><span class="sep">&#8250;</span><a href="{{ route('real-estate') }}">Real Estate</a><span class="sep">&#8250;</span><span class="cur">Apply Now</span></div>
+            <h1 class="zei-page-title">Real Estate Application</h1>
         </div>
     </div>
 </div>
-
-<div class="form-contact style-one mt-100">
+<div class="zei-section">
     <div class="container">
-        <h3 class="text-center">Apply Now</h3>
-        <p>
-            Real estate investment involves the purchase, ownership, management, rental and/or sale
-            of real estate for profit.
-            Improvement of realty property as part of a real estate investment strategy is generally
-            considered to be a sub-specialty of real estate investing called real estate development.
-            Real estate is an asset form with limited liquidity relative to other investments
-            (such as stocks or bonds that openly trade on financial markets).
-            It is also capital intensive (although capital may be gained through mortgage leverage)
-            and is highly cash flow dependent.
-            If these factors are not well understood and managed by the investor, real estate
-            becomes a risky investment.
-        </p>
-
-        @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-
-        <form action="{{ route('real-estate.apply') }}" method="POST">
-            @csrf
-            <div class="me-contact-form">
-                <input type="text" placeholder="Name" name="name" id="full_name"
-                    class="require @error('name') is-invalid @enderror"
-                    value="{{ old('name') }}"/>
-                @error('name')<div class="text-danger">{{ $message }}</div>@enderror
-
-                <input type="text" placeholder="Subject" name="subject" id="subject"
-                    value="{{ old('subject') }}"/>
-
-                <input type="text" placeholder="Email" name="email" id="email"
-                    class="require @error('email') is-invalid @enderror"
-                    value="{{ old('email') }}"/>
-                @error('email')<div class="text-danger">{{ $message }}</div>@enderror
-
-                <textarea placeholder="Message" name="message" id="message"
-                    class="@error('message') is-invalid @enderror">{{ old('message') }}</textarea>
-                @error('message')<div class="text-danger">{{ $message }}</div>@enderror
-
-                <button type="submit" class="me-btn submitForm">Submit</button>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="zei-form-wrap">
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--navy);margin:0 0 8px">Apply for Real Estate Investment</h3>
+                    <p style="color:var(--muted);font-size:14px;margin:0 0 28px;line-height:1.7">Real estate investment involves the purchase, ownership, management, rental and/or sale of real estate for profit. Our experts will evaluate your application and get back to you within 24 hours.</p>
+                    <form action="{{ route('contact.send') }}" method="POST">
+                        @csrf
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="zei-fg" style="margin-bottom:0"><label>Full Name</label><input type="text" name="name" class="zei-inp" placeholder="Your name" required></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="zei-fg" style="margin-bottom:0"><label>Email</label><input type="email" name="email" class="zei-inp" placeholder="you@example.com" required></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="zei-fg" style="margin-bottom:0"><label>Phone Number</label><input type="text" name="phone" class="zei-inp" placeholder="+1 234 567 8900"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="zei-fg" style="margin-bottom:0"><label>Investment Budget</label><input type="text" name="budget" class="zei-inp" placeholder="e.g. $10,000 - $50,000"></div>
+                            </div>
+                            <div class="col-12">
+                                <div class="zei-fg" style="margin-bottom:0"><label>Message / Investment Interest</label><textarea name="message" class="zei-ta" placeholder="Tell us what type of real estate investment you are interested in..." required></textarea></div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="zei-btn zei-btn-green zei-btn-lg">Submit Application</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
-
-<a class="scroll-to-top-btn" href="#header"><i class="ph-bold ph-caret-up"></i></a>
-<div class="pb-100"></div>
 @endsection

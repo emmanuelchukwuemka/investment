@@ -63,6 +63,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth.user', 'admin.only'])-
     Route::get('/transactions/{transaction}/proof',   [AdminController::class, 'viewProof'])->name('transactions.proof');
     Route::get('/investments',                        [AdminController::class, 'investments'])->name('investments');
     Route::post('/investments/{investment}/complete',  [AdminController::class, 'completeInvestment'])->name('investments.complete');
+    Route::post('/investments/{investment}/cancel',    [AdminController::class, 'cancelInvestment'])->name('investments.cancel');
+    Route::post('/users/{user}/invest',                [AdminController::class, 'addInvestment'])->name('users.invest');
     Route::get('/messages',                            [AdminController::class, 'messages'])->name('messages');
     Route::delete('/messages/{message}',               [AdminController::class, 'deleteMessage'])->name('messages.delete');
 });

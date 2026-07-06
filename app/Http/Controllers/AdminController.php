@@ -44,7 +44,9 @@ class AdminController extends Controller
 
     public function userEdit(User $user)
     {
-        return view('admin.user-edit', compact('user'));
+        $plans       = InvestmentPlan::where('is_active', true)->get();
+        $investments = Investment::with('plan')->where('user_id', $user->id)->latest()->get();
+        return view('admin.user-edit', compact('user', 'plans', 'investments'));
     }
 
     public function userUpdate(Request $request, User $user)
@@ -240,6 +242,42 @@ class AdminController extends Controller
         } catch (\Exception $e) {}
 
         return back()->with('success', "Investment completed. ROI of \${$investment->roi_amount} credited to user.");
+    }
+
+    public function addInvestment(Request $request, User $user)
+    {
+        $request->validate([
+            'plan_id'  => 'required|exists:investment_plans,id',
+            'amount'   => 'required|numeric|min:0.01',
+            'status'   => 'required|in:active,completed,cancelled',
+            'ends_at'  => 'nullable|date',
+        ]);
+
+        $plan      = InvestmentPlan::findOrFail($request->plan_id);
+        $amount    = (float) $request->amount;
+        $roiAmount = round($amount * ($plan->roi_percent / 100), 2);
+        $endsAt    = $request->ends_at ?: now()->addDays($plan->duration_days);
+
+        Investment::create([
+            'user_id'    => $user->id,
+            'plan_id'    => $plan->id,
+            'amount'     => $amount,
+            'roi_amount' => $roiAmount,
+            'status'     => $request->status,
+            'started_at' => now(),
+            'ends_at'    => $endsAt,
+        ]);
+
+        return back()->with('success', "Investment of \$$amount ({$plan->name}) added to {$user->name}.");
+    }
+
+    public function cancelInvestment(Investment $investment)
+    {
+        if ($investment->status !== 'active') {
+            return back()->with('error', 'Only active investments can be cancelled.');
+        }
+        $investment->update(['status' => 'cancelled']);
+        return back()->with('success', 'Investment cancelled.');
     }
 
     public function messages(Request $request)

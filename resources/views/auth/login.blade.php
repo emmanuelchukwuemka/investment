@@ -1,46 +1,36 @@
 @extends('layouts.app')
-
 @section('title', 'Login | Zenith Edge Investment')
-
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
-    <div class="container">
-        <div class="heading-nav gap-4 mt-32"><a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a><i class="ph ph-caret-double-right text-white"></i>
-            <div class="caption1 text-white">Login</div>
-        </div>
-        <div class="text-nav">
-            <div class="heading3 text-white">Login</div>
-        </div>
-    </div>
-</div>
-<div class="form-contact style-one mt-100">
-    <div class="container">
-        <form action="{{ route('login.post') }}" method="post" class="form-signin">
+<div class="zei-auth-wrap">
+    <div class="zei-auth-card">
+        <a href="{{ route('home') }}" class="zei-auth-logo">Zenith Edge<span> Investment</span></a>
+        <h1 class="zei-auth-title">Welcome Back</h1>
+        <p class="zei-auth-sub">Sign in to access your investment dashboard</p>
+
+        <form action="{{ route('login.post') }}" method="post">
             @csrf
-            <marquee>
-                <div class="text-center" style="text-align: center;"><img src="{{ asset('img/favicon.png') }}" style="width: 40px;"> <b>ZENITH EDGE INVESTMENT</b></div>
-            </marquee>
-            <div class="col-12 col-sm-12">
-                <label for="Email">Email</label>
-                <input type="email" name="email" id="inputEmail"
-                    class="w-100 bg-surface text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8"
-                    placeholder="Email address" value="{{ old('email') }}" required autofocus>
-                @error('email')<div style="color:red;font-size:13px;margin-top:4px;">{{ $message }}</div>@enderror
+            <div class="zei-fg">
+                <label>Email Address</label>
+                <input type="email" name="email" class="zei-inp" placeholder="you@example.com" value="{{ old('email') }}" required autofocus>
+                @error('email')<div class="zei-err">{{ $message }}</div>@enderror
             </div>
-            <div class="col-12 col-sm-12">
-                <label for="Password">Password</label>
-                <input type="password" name="password" id="inputPassword"
-                    class="w-100 bg-surface text-secondary caption1 pl-16 pr-16 pt-12 pb-12 bora-8"
-                    placeholder="Password" required>
-                @error('password')<div style="color:red;font-size:13px;margin-top:4px;">{{ $message }}</div>@enderror
+            <div class="zei-fg">
+                <label>Password</label>
+                <input type="password" name="password" class="zei-inp" placeholder="Your password" required>
+                @error('password')<div class="zei-err">{{ $message }}</div>@enderror
             </div>
-            <br>
-            <button class="button-share hover-border-blue bg-blue text-white text-button pl-36 pr-36 pt-12 pb-12 bora-48" type="submit">Sign in</button>
-            <a href="{{ route('password.reset') }}" style="color: #000033;">Forgot password?</a>
-            <br>
-            <a href="{{ route('register') }}">Not yet a member? Sign Up</a>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;font-size:13px">
+                <label style="display:flex;align-items:center;gap:7px;cursor:pointer;font-weight:500;color:var(--muted)">
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="{{ route('password.reset') }}" style="color:var(--blue);font-weight:600">Forgot password?</a>
+            </div>
+            <button type="submit" class="zei-btn zei-btn-green" style="width:100%;justify-content:center;padding:13px">Sign In</button>
         </form>
+
+        <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--muted)">
+            Don't have an account? <a href="{{ route('register') }}" style="color:var(--navy);font-weight:700">Create one free</a>
+        </p>
     </div>
 </div>
 @endsection

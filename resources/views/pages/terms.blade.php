@@ -1,39 +1,53 @@
 @extends('layouts.app')
-
 @section('title', 'Terms and Conditions | Zenith Edge Investment')
-
 @section('content')
-<div class="slider-sub">
-    <div class="bg-img"><img src="{{ asset('lassets/images/banner/contact.png') }}" alt="banner"></div>
+
+<div class="zei-page-hero">
+    <img src="{{ asset('lassets/images/banner/contact.png') }}" alt="Terms" class="zei-page-hero-bg">
+    <div class="zei-page-hero-overlay"></div>
     <div class="container">
-        <div class="heading-nav gap-4 mt-32"><a class="hover-underline caption1 text-white" href="{{ route('home') }}">Home</a><i class="ph ph-caret-double-right text-white"></i>
-            <div class="caption1 text-white">Terms and Conditions</div>
+        <div class="zei-page-hero-content">
+            <div class="zei-breadcrumb">
+                <a href="{{ route('home') }}">Home</a>
+                <span class="sep">&#8250;</span>
+                <span class="cur">Terms and Conditions</span>
+            </div>
+            <h1 class="zei-page-title">Terms & Conditions</h1>
         </div>
-        <div class="text-nav"><div class="heading3 text-white">Terms and Conditions</div></div>
     </div>
 </div>
-<div class="form-contact style-one mt-100">
+
+<div class="zei-section">
     <div class="container">
-        <h2 class="intro-heading uppercase text-center">Terms and Conditions</h2>
-        <p class="intro-text-lead">
-            Please read the guidelines below<br>
-            In using this website you are deemed to have read and agreed to the following terms and conditions:
-        </p>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:48px">
+                    <p style="font-size:15px;color:var(--muted);margin-bottom:36px;line-height:1.7">By using this website you are deemed to have read and agreed to the following terms and conditions. Please read them carefully before proceeding.</p>
 
-        <h4 class="text-center">Privacy Statement</h4>
-        <p>Zenith Edge Investment knows that you care how information about you is used and shared. Hence we make a strong commitment to protect and respect the privacy principles regarding the information that you provide. All the data given by a member to Zenith Edge Investment will be only privately used and not disclosed to any third parties. We will not sell, share, or rent your personal information to any third party or use your e-mail address for unsolicited mail. Any emails sent by this Company will only be in connection with the provision of agreed services.</p>
+                    @php
+                    $sections = [
+                        ['title'=>'Privacy Statement','body'=>'Zenith Edge Investment is committed to protecting your privacy. All data provided by a member will be used privately and not disclosed to any third parties. We will not sell, share, or rent your personal information. Any emails sent will only be in connection with the provision of agreed services.'],
+                        ['title'=>'Guidance & Professional Advice','body'=>'Trading carries a high degree of risk and may not be suitable for all investors. Before investing, carefully consider your financial condition and experience level. Be aware of all risks associated with trading and seek advice from an independent financial adviser if in doubt. Past performance is not a guarantee of future results.'],
+                        ['title'=>'Use of Site','body'=>'SPAM violations will result in immediate permanent account removal. Zenith Edge Investment reserves the right to accept or decline any member for membership without explanation.'],
+                        ['title'=>'Responsibilities & General Terms','body'=>'Zenith Edge Investment services are available only to members. You agree to be of legal age (minimum 18 years) in your country to join. Every deposit is considered a private transaction between Zenith Edge Investment and its member.'],
+                        ['title'=>'Disclaimer & Limitation of Liability','body'=>'We reserve the right to change rules, commissions, and rates at any time at our sole discretion. This is done to respect the integrity of all members\' interests as a whole. It is your sole responsibility to review current terms regularly.'],
+                    ];
+                    @endphp
 
-        <h4 class="text-center">Guidance & Professional advice</h4>
-        <p>Trading carry a high degree of risk, and may not be suitable for all investors. Before deciding to invest in Zenith Edge Investment you should carefully consider your financial condition and your level of experience. You should be aware of all the risks associated with trading and seek advice from an independent financial adviser if you have any doubts. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You are investing at your own risk and you agree that a past performance is not a guarantee for the same future performance.</p>
+                    @foreach($sections as $s)
+                    <div style="margin-bottom:32px">
+                        <h3 style="font-size:1.1rem;font-weight:800;color:var(--navy);padding-bottom:12px;border-bottom:2px solid var(--green);margin-bottom:14px;display:inline-block">{{ $s['title'] }}</h3>
+                        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin:0">{{ $s['body'] }}</p>
+                    </div>
+                    @endforeach
 
-        <h4 class="text-center">Use of site</h4>
-        <p>SPAM violators will be permanently removed from the site with immediate effect. Zenith Edge Investment reserves the right to accept or decline any member for membership without explanation.</p>
-
-        <h4 class="text-center">Responsibilities & General Terms</h4>
-        <p>Zenith Edge Investment is available only to the members of the site. You agree to be of legal age in your country to join this site and in all the cases your minimum age must be 18 years. Every deposit is considered to be a private transaction between Zenith Edge Investment and its member.</p>
-
-        <h4 class="text-center">Disclaimer & Limitation of liability</h4>
-        <p>We reserve the right to change the rules, commissions and rates of the program at any time and at our sole discretion without notice, especially in order to respect the integrity of the members' interests as a whole. You agree that it is your sole responsibility to review the current terms.</p>
+                    <div style="background:var(--bg);border-radius:10px;padding:20px;margin-top:16px;font-size:13px;color:var(--muted)">
+                        Last updated: {{ date('F Y') }} &bull; For questions, contact <a href="mailto:support@zenithedgeinvestment.com" style="color:var(--navy);font-weight:600">support@zenithedgeinvestment.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 @endsection
