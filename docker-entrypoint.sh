@@ -21,7 +21,15 @@ chmod -R 775 storage bootstrap/cache
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-php artisan migrate --force
-php artisan db:seed --force
+
+# Run migrations — if they fail (e.g. stale tables from a broken previous run),
+# wipe and start fresh. After a successful first deploy this path won't trigger.
+if ! php artisan migrate --force; then
+    echo "==> migrate failed (stale DB state) — running migrate:fresh..."
+    php artisan migrate:fresh --force
+    php artisan db:seed --force
+else
+    php artisan db:seed --force
+fi
 
 exec "$@"
