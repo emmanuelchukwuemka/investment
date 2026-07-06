@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('roi_percent', 5, 2);
             $table->integer('duration_days');
             $table->string('icon')->default('fa-chart-line');
-            $table->boolean('is_active')->default(true);
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
         });
     }
