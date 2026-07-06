@@ -340,8 +340,8 @@
         <p>Join thousands of investors worldwide who trust Zenith Edge Investment to deliver consistent, secure returns.</p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
             <a href="{{ route('register') }}" class="zei-btn zei-btn-green zei-btn-lg">Create Free Account</a>
-            <a href="https://api.whatsapp.com/send?phone=+19253015238" class="zei-btn zei-btn-outline-white zei-btn-lg">
-                <i class="ph-light ph-phone"></i> +1 (925) 301-5238
+            <a href="https://api.whatsapp.com/send?phone=+15413211863" class="zei-btn zei-btn-outline-white zei-btn-lg">
+                <i class="ph-light ph-phone"></i> +1 (541) 321-1863
             </a>
         </div>
     </div>

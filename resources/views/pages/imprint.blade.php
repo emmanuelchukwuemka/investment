@@ -57,11 +57,11 @@
                         </tr>
                         <tr>
                             <td style="color:var(--muted);font-weight:600;vertical-align:top">Phone</td>
-                            <td><a href="https://api.whatsapp.com/send?phone=+19253015238" style="color:var(--blue)">+1 (925) 301-5238</a></td>
+                            <td><a href="https://api.whatsapp.com/send?phone=+15413211863" style="color:var(--blue)">+1 (541) 321-1863</a></td>
                         </tr>
                         <tr>
                             <td style="color:var(--muted);font-weight:600;vertical-align:top">WhatsApp</td>
-                            <td><a href="https://api.whatsapp.com/send?phone=+19253015238" style="color:var(--blue)">+1 (925) 301-5238</a></td>
+                            <td><a href="https://api.whatsapp.com/send?phone=+15413211863" style="color:var(--blue)">+1 (541) 321-1863</a></td>
                         </tr>
                         <tr>
                             <td style="color:var(--muted);font-weight:600;vertical-align:top">Address</td>

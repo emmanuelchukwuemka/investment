@@ -351,7 +351,7 @@ ul{list-style:none;padding:0;margin:0}
                 <span><i class="ph-light ph-envelope" style="margin-right:5px"></i>support@zenithedgeinvestment.com</span>
             </div>
             <div class="zei-topbar-right">
-                <a href="https://api.whatsapp.com/send?phone=+19253015238"><i class="ph-light ph-phone" style="margin-right:4px"></i>+1 (925) 301-5238</a>
+                <a href="https://api.whatsapp.com/send?phone=+15413211863"><i class="ph-light ph-phone" style="margin-right:4px"></i>+1 (541) 321-1863</a>
             </div>
         </div>
     </div>
@@ -525,7 +525,7 @@ ul{list-style:none;padding:0;margin:0}
                 <div class="zei-footer-h">Contact</div>
                 <ul class="zei-footer-links">
                     <li style="color:rgba(255,255,255,.65);font-size:14px;margin-bottom:10px"><i class="ph-light ph-map-pin" style="margin-right:6px"></i>California, USA</li>
-                    <li style="margin-bottom:10px"><a href="https://api.whatsapp.com/send?phone=+19253015238"><i class="ph-light ph-phone" style="margin-right:6px"></i>+1 (925) 301-5238</a></li>
+                    <li style="margin-bottom:10px"><a href="https://api.whatsapp.com/send?phone=+15413211863"><i class="ph-light ph-phone" style="margin-right:6px"></i>+1 (541) 321-1863</a></li>
                     <li style="margin-bottom:20px"><a href="mailto:support@zenithedgeinvestment.com"><i class="ph-light ph-envelope" style="margin-right:6px"></i>support@zenithedgeinvestment.com</a></li>
                 </ul>
                 <div class="zei-footer-h">Newsletter</div>
@@ -577,7 +577,7 @@ document.getElementById('zei-scroll-top').addEventListener('click',function(e){e
 
 <script type="text/javascript">
 (function(){
-    var options={whatsapp:"+19253015238",call_to_action:"Message us",position:"left"};
+    var options={whatsapp:"+15413211863",call_to_action:"Message us",position:"left"};
     var proto=document.location.protocol,host="getbutton.io",url=proto+"//static."+host;
     var s=document.createElement('script');
     s.type='text/javascript';s.async=true;

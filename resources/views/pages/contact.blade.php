@@ -37,7 +37,7 @@
                         <div class="zei-contact-icon"><i class="ph-fill ph-phone"></i></div>
                         <div>
                             <div style="font-size:12px;color:rgba(255,255,255,.55);margin-bottom:2px">WhatsApp / Phone</div>
-                            <a href="https://api.whatsapp.com/send?phone=+19253015238" style="font-weight:700;font-size:15px;color:#fff">+1 (925) 301-5238</a>
+                            <a href="https://api.whatsapp.com/send?phone=+15413211863" style="font-weight:700;font-size:15px;color:#fff">+1 (541) 321-1863</a>
                         </div>
                     </div>
                     <div class="zei-contact-item">
