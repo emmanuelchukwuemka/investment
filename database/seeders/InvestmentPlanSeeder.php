@@ -18,7 +18,7 @@ class InvestmentPlanSeeder extends Seeder
                 'roi_percent'  => 5.00,
                 'duration_days'=> 30,
                 'icon'         => 'fa-seedling',
-                'is_active'    => true,
+                'is_active'    => 1,
             ],
             [
                 'name'         => 'Growth',
@@ -28,7 +28,7 @@ class InvestmentPlanSeeder extends Seeder
                 'roi_percent'  => 10.00,
                 'duration_days'=> 60,
                 'icon'         => 'fa-chart-line',
-                'is_active'    => true,
+                'is_active'    => 1,
             ],
             [
                 'name'         => 'Elite',
@@ -38,7 +38,7 @@ class InvestmentPlanSeeder extends Seeder
                 'roi_percent'  => 18.00,
                 'duration_days'=> 90,
                 'icon'         => 'fa-crown',
-                'is_active'    => true,
+                'is_active'    => 1,
             ],
         ];
 
